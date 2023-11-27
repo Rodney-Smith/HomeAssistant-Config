@@ -1,0 +1,8 @@
+###############################################################################
+#  @author         :  Rodney Smith
+#  @date           :  06/23/2022
+#  @homeassistant  :  python_script
+#  @description    :  Python scripts - we may use them - soon (tm)
+#                     https://www.home-assistant.io/integrations/python_script/
+###############################################################################
+python_script:

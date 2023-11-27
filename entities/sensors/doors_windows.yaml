@@ -1,0 +1,64 @@
+##############################################################################
+#   @author         :   Rodney Smith
+#   @date           :   11/22/2023
+#   @package        :   sensors
+#   @description    :   Add door & window sensors to Home Assistant
+#                                https://www.home-assistant.io/integrations/zha
+###############################################################################
+- platform: template
+  sensors:
+    doors_open:
+      unique_id: fe80790bb40d43e09c52207122683b69
+      friendly_name: "Doors"
+      unit_of_measurement: 'open'
+      icon_template: mdi:door-open
+      value_template: >
+        {% set doors = [
+            states.binary_sensor.front_door,
+            states.binary_sensor.back_door,
+            states.binary_sensor.sliding_door] -%}
+        {% set doors_open = doors | selectattr('state','eq','on') | list | count -%}
+        {{ doors_open }}
+
+    doors_closed:
+      friendly_name: "Doors"
+      unit_of_measurement: 'closed'
+      unique_id: a43f3e4a4eef40bf8e5f38b2ad52e702
+      icon_template: mdi:door-closed
+      value_template: >
+        {% set doors = [
+            states.binary_sensor. front_door,
+            states.binary_sensor.back_door,
+            states.binary_sensor.sliding_door] -%}
+        {% set doors_closed = doors | selectattr('state','eq','off') | list | count -%}
+        {{ doors_closed }}
+
+    windows_open:
+      friendly_name: "Windows"
+      unit_of_measurement: 'open'
+      unique_id: 5ddb22b5352c40f68f235b4e85840ea7
+      icon_template: mdi:window-open
+      value_template: >
+        {% set windows = [
+            states.binary_sensor.office_window,
+            states.binary_sensor.hall_window,
+            states.binary_sensor.main_bedroom_window,
+            states.binary_sensor.sink_window,
+            states.binary_sensor.nook_window] -%}
+        {% set windows_open = windows | selectattr('state','eq','on') | list | count -%}
+        {{ windows_open }}
+
+    windows_closed:
+      friendly_name: "Windows"
+      unit_of_measurement: 'closed'
+      unique_id: 8284370f44454364922843e940a39169
+      icon_template: mdi:window-closed
+      value_template: >
+        {% set windows = [
+            states.binary_sensor.office_window,
+            states.binary_sensor.hall_window,
+            states.binary_sensor.main_bedroom_window,
+            states.binary_sensor.sink_window,
+            states.binary_sensor.nook_window] -%}
+        {% set windows_closed = windows | selectattr('state','eq','off') | list | count -%}
+        {{ windows_closed }}

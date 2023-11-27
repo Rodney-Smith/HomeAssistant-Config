@@ -1,0 +1,98 @@
+###############################################################################
+#   @author         :  Rodney Smith
+#   @date           :  06/22/2022
+#   @homeassistant  :  cloud
+#   @description    :  The Home Assistant Cloud allows you to quickly integrate
+#                      your local Home Assistant with various cloud services
+#                      like Amazon Alexa and Google Home.
+#                      https://www.home-assistant.io/integrations/cloud/
+###############################################################################
+# Including Directories
+# !include_dir_list will return the content of a directory as a list with each
+#    file content being an entry in the list. The list entries are ordered based
+#    on the alphanumeric ordering of the names of the files.
+# !include_dir_named will return the content of a directory as a dictionary
+#    which maps filename => content of file.
+# !include_dir_merge_list will return the content of a directory as a list by
+#    merging all files (which should contain a list) into 1 big list.
+# !include_dir_merge_named will return the content of a directory as a
+#    dictionary by loading each file and merging it into 1 big dictionary.
+###############################################################################
+cloud:
+  # Customize the Google Assistant integration with the Nabu Casa Cloud
+  #  google_actions:
+  # Entity specific configuration for Google Assistant.
+  # These are loaded from a separate directory.
+  #    entity_config: !include_dir_named ../customizations/google
+
+  # Filters for entities to include/exclude from Google Assistant.
+  # These are loaded from a separate directory.
+  #    filter:
+  #      include_entities: !include_dir_merge_list ../assistants/google
+
+  # Customize the Amazon Alexa integration with the Nabu Casa Cloud
+  alexa:
+    # Entity specific configuration for Amazon Alexa.
+    # These are loaded from a separate directory.
+    entity_config: !include_dir_named ../customizations/alexa
+    #    entity_config:
+    #      light.kitchen_lights:
+    #        display_categories: LIGHT
+
+    # Filters for entities to include/exclude from Google Assistant.
+    # These are loaded from a separate directory.
+    filter:
+      #      include_entities: !include_dir_merge_list ../assistants/alexa
+      include_domains:
+        - camera
+        - fan
+        - scene
+      include_entities:
+        - sensor.livingroom_temperature
+        - sensor.bedrooms_temperature
+        - sensor.kitchen_temperature
+        - sensor.office_temperature
+        - sensor.inside_temperature
+        - sensor.inside_humidity
+        - sensor.outside_temperature
+        - sensor.outside_humidity
+        - sensor.humidor_temperature
+        - sensor.humidor_humidity
+        - switch.bedroom1_plug1
+        - switch.bedroom2_plug1
+        - switch.hall_plug1
+        - switch.hall_plug2
+        - switch.main_bedroom_plug1
+        - switch.washing_machine
+        - input_boolean.mode_guest
+        - input_boolean.mode_vacation
+        - input_boolean.sleep_gina
+        - input_boolean.sleep_rodney
+        - input_boolean.override_big_fan
+        - input_boolean.override_black_fan
+        - input_boolean.override_maxxair
+        - light.backyard
+        - light.bedroom1_lights
+        - light.bedroom2_lights
+        - light.dining_room_lights
+        - light.entrance
+        - light.foyer
+        - light.front
+        - light.front_porch_1
+        - light.front_porch_2
+        - light.gina_light
+        - light.gina_nightstand
+        - light.kitchen_lights
+        - light.living_room_lamps
+        - light.main_bedroom_nightstands
+        - light.main_bedroom_lights
+        - light.wled_soundreactive
+        - light.office_lights
+        - light.rodney_light
+        - light.rodney_nightstand
+        - light.side
+        - light.side_porch_1
+        - light.side_porch_2
+      exclude_entities:
+        - camera.bert_map
+        - camera.ernie_map

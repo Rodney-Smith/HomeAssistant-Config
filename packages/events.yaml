@@ -1,0 +1,281 @@
+###############################################################################
+#   @author         :   Rodney Smith
+#   @date           :   12/30/2022
+#   @package        :   Events
+#   @description    :   Special Events.
+###############################################################################
+
+input_datetime:
+  bday_lydia:
+    has_date: true
+    has_time: false
+    initial: !secret bday_lydia
+    icon: mdi:cake-variant
+  bday_kelen:
+    has_date: true
+    has_time: false
+    initial: !secret bday_kelen
+    icon: mdi:cake-variant
+  event_lydia_and_kelen:
+    has_date: true
+    has_time: false
+    initial: !secret event_lydia_and_kelen
+  bday_tori:
+    has_date: true
+    has_time: false
+    initial: !secret bday_tori
+    icon: mdi:cake-variant
+  bday_spencer:
+    has_date: true
+    has_time: false
+    initial: !secret bday_spencer
+    icon: mdi:cake-variant
+  bday_catelynn:
+    has_date: true
+    has_time: false
+    initial: !secret bday_catelynn
+    icon: mdi:cake-variant
+  bday_reannon:
+    has_date: true
+    has_time: false
+    initial: !secret bday_reannon
+    icon: mdi:cake-variant
+  bday_michael:
+    has_date: true
+    has_time: false
+    initial: !secret bday_michael
+    icon: mdi:cake-variant
+  bday_riley:
+    has_date: true
+    has_time: false
+    initial: !secret bday_riley
+    icon: mdi:cake-variant
+  bday_jo:
+    has_date: true
+    has_time: false
+    initial: !secret bday_jo
+    icon: mdi:cake-variant
+  bday_arie:
+    has_date: true
+    has_time: false
+    initial: !secret bday_arie
+    icon: mdi:cake-variant
+  bday_rodney:
+    has_date: true
+    has_time: false
+    initial: !secret bday_rodney
+    icon: mdi:cake-variant
+  bday_gina:
+    has_date: true
+    has_time: false
+    initial: !secret bday_gina
+    icon: mdi:cake-variant
+  event_anniversary:
+    has_date: true
+    has_time: false
+    initial: !secret event_anniversary
+  bday_judy:
+    has_date: true
+    has_time: false
+    initial: !secret bday_judy
+    icon: mdi:cake-variant
+  bday_meredith:
+    has_date: true
+    has_time: false
+    initial: !secret bday_meredith
+    icon: mdi:cake-variant
+  bday_mark:
+    has_date: true
+    has_time: false
+    initial: !secret bday_mark
+    icon: mdi:cake-variant
+  bday_natalie:
+    has_date: true
+    has_time: false
+    initial: !secret bday_natalie
+    icon: mdi:cake-variant
+  bday_eric:
+    has_date: true
+    has_time: false
+    initial: !secret bday_eric
+    icon: mdi:cake-variant
+  bday_mel:
+    has_date: true
+    has_time: false
+    initial: !secret bday_mel
+    icon: mdi:cake-variant
+  bday_cliff:
+    has_date: true
+    has_time: false
+    initial: !secret bday_cliff
+    icon: mdi:cake-variant
+  bday_griff:
+    has_date: true
+    has_time: false
+    initial: !secret bday_griff
+    icon: mdi:cake-variant
+  bday_justin:
+    has_date: true
+    has_time: false
+    initial: !secret bday_justin
+    icon: mdi:cake-variant
+
+sensor:
+  - platform: template
+    sensors:
+      days_until_vacation:
+        value_template: "{{ ((as_timestamp(strptime(state_attr('calendar.vacation', 'start_time'), '%Y-%m-%d'))-as_timestamp(now())) | int /60/1440) | round(0) }}"
+        unit_of_measurement: 'Days'
+
+anniversaries:
+  sensors:
+  # Birthdays
+    - name: Lydia
+      date_template: "{{ states('input_datetime.bday_lydia') }}"
+      id_prefix: bday_
+      icon_normal: mdi:cake
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+    - name: Kelen
+      date_template: "{{ states('input_datetime.bday_kelen') }}"
+      id_prefix: bday_
+      icon_normal: mdi:cake
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+    - name: Lydia and Kelen
+      date_template: "{{ states('input_datetime.event_lydia_and_kelen') }}"
+      id_prefix: event_
+      icon_normal: mdi:dance-ballroom
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+    - name: Tori
+      date_template: "{{ states('input_datetime.bday_tori') }}"
+      id_prefix: bday_
+      icon_normal: mdi:cake
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+    - name: Spencer
+      date_template: "{{ states('input_datetime.bday_spencer') }}"
+      id_prefix: bday_
+      icon_normal: mdi:cake
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+    - name: Catelynn
+      date_template: "{{ states('input_datetime.bday_catelynn') }}"
+      id_prefix: bday_
+      icon_normal: mdi:cake
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+    - name: Reannon
+      date_template: "{{ states('input_datetime.bday_reannon') }}"
+      id_prefix: bday_
+      icon_normal: mdi:cake
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+    - name: Michael
+      date_template: "{{ states('input_datetime.bday_michael') }}"
+      id_prefix: bday_
+      icon_normal: mdi:cake
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+    - name: Riley
+      date_template: "{{ states('input_datetime.bday_riley') }}"
+      id_prefix: bday_
+      icon_normal: mdi:cake
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+    - name: Jo
+      date_template: "{{ states('input_datetime.bday_jo') }}"
+      id_prefix: bday_
+      icon_normal: mdi:cake
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+    - name: Arie
+      date_template: "{{ states('input_datetime.bday_arie') }}"
+      id_prefix: bday_
+      icon_normal: mdi:cake
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+    - name: Rodney
+      date_template: "{{ states('input_datetime.bday_rodney') }}"
+      id_prefix: bday_
+      icon_normal: mdi:cake
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+    - name: Gina
+      date_template: "{{ states('input_datetime.bday_gina') }}"
+      id_prefix: bday_
+      icon_normal: mdi:cake
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+    - name: Wedding Anniversary
+      date_template: "{{ states('input_datetime.event_anniversary') }}"
+      id_prefix: event_
+      icon_normal: mdi:dance-ballroom
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+    - name: Judy
+      date_template: "{{ states('input_datetime.bday_judy') }}"
+      id_prefix: bday_
+      icon_normal: mdi:cake
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+    - name: Meredith
+      date_template: "{{ states('input_datetime.bday_meredith') }}"
+      id_prefix: bday_
+      icon_normal: mdi:cake
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+    - name: Mark
+      date_template: "{{ states('input_datetime.bday_mark') }}"
+      id_prefix: bday_
+      icon_normal: mdi:cake
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+    - name: Natalie
+      date_template: "{{ states('input_datetime.bday_natalie') }}"
+      id_prefix: bday_
+      icon_normal: mdi:cake
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+    - name: Eric
+      date_template: "{{ states('input_datetime.bday_eric') }}"
+      id_prefix: bday_
+      icon_normal: mdi:cake
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+    - name: Mel
+      date_template: "{{ states('input_datetime.bday_mel') }}"
+      id_prefix: bday_
+      icon_normal: mdi:cake
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+    - name: Cliff
+      date_template: "{{ states('input_datetime.bday_cliff') }}"
+      id_prefix: bday_
+      icon_normal: mdi:cake
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+    - name: Griff
+      date_template: "{{ states('input_datetime.bday_griff') }}"
+      id_prefix: bday_
+      icon_normal: mdi:cake
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+    - name: Justin
+      date_template: "{{ states('input_datetime.bday_justin') }}"
+      id_prefix: bday_
+      icon_normal: mdi:cake
+      days_as_soon: 14
+      icon_soon: mdi:calendar-star
+  # Events
+    - name: Annual Herf
+      date_template: "{{ states('input_datetime.annual_herf') }}"
+      id_prefix: event_
+      icon_normal: mdi:cigar
+      days_as_soon: 30
+      icon_soon: mdi:calendar-star
+    - name: Election Day
+      date_template: "{{ states('input_datetime.election_day') }}"
+      id_prefix: event_
+      icon_normal: mdi:calendar-check

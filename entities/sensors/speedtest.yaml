@@ -1,0 +1,43 @@
+
+##############################################################################
+#   @author         :   Rodney Smith
+#   @date           :   11/22/2023
+#   @package        :   sensors
+#   @description    :   Add door & window sensors to Home Assistant
+#                         https://www.home-assistant.io/integrations/statistics
+###############################################################################
+- platform: statistics
+  name: "SpeedTest Max Download"
+  entity_id: sensor.speedtest_download
+  state_characteristic: value_max
+  sampling_size: 20
+  max_age:
+    days: 7
+- platform: statistics
+  name: "SpeedTest Max Upload"
+  entity_id: sensor.speedtest_upload
+  state_characteristic: value_max
+  sampling_size: 20
+  max_age:
+    days: 7
+- platform: statistics
+  name: "SpeedTest Weekly Average Download"
+  entity_id: sensor.speedtest_download
+  state_characteristic: mean
+  sampling_size: 20
+  max_age:
+    days: 7
+- platform: statistics
+  name: "SpeedTest Weekly Average Ping"
+  entity_id: sensor.speedtest_ping
+  state_characteristic: mean
+  sampling_size: 20
+  max_age:
+    days: 7
+- platform: statistics
+  name: "SpeedTest Weekly Average Upload"
+  entity_id: sensor.speedtest_upload
+  state_characteristic: mean
+  sampling_size: 20
+  max_age:
+    days: 7

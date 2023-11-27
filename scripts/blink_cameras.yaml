@@ -1,0 +1,90 @@
+################################################################################
+#   @author         :  Rodney Smith
+#   @date           :  08/28/2022
+#   @homeassistant  :  script
+#   @description    :  Blink Camera Snapshots
+#                             https://www.home-assistant.io/integrations/blink/
+###############################################################################
+snap_picture_back_patio:
+  alias: Blink Camera Snapshot Back Patio
+  mode: single
+  sequence:
+  - entity_id: camera.blink_back_patio
+    service: blink.trigger_camera
+  - delay: 00:00:05
+  - data: {}
+    service: blink.blink_update
+  - data:
+      entity_id: camera.blink_back_patio  #entity id of blink camera as defined in Home Assistant
+      filename: /share/blink/Patio/blink_camera_still_image.jpg  # where you want to store still image
+    service: camera.snapshot
+
+snap_picture_front_door:
+  alias: Blink Camera Snapshot Entry
+  mode: single
+  sequence:
+  - entity_id: camera.blink_front_door
+    service: blink.trigger_camera
+  - delay: 00:00:05
+  - data: {}
+    service: blink.blink_update
+  - data:
+      entity_id: camera.blink_front_door  #entity id of blink camera as defined in Home Assistant
+      filename: /share/blink/Entry/blink_camera_still_image.jpg  # where you want to store still image
+    service: camera.snapshot
+
+snap_picture_living_room:
+  alias: Blink Camera Snapshot Living Room
+  mode: single
+  sequence:
+  - entity_id: camera.blink_living_room
+    service: blink.trigger_camera
+  - delay: 00:00:05
+  - data: {}
+    service: blink.blink_update
+  - data:
+      entity_id: camera.blink_living_room  #entity id of blink camera as defined in Home Assistant
+      filename: /share/blink/Living/blink_camera_still_image.jpg  # where you want to store still image
+    service: camera.snapshot
+
+snap_picture_sun_room:
+  alias: Blink Camera Snapshot Sun Room
+  mode: single
+  sequence:
+  - entity_id: camera.blink_sun_room
+    service: blink.trigger_camera
+  - delay: 00:00:05
+  - data: {}
+    service: blink.blink_update
+  - data:
+      entity_id: camera.blink_sun_room  #entity id of blink camera as defined in Home Assistant
+      filename: /share/blink/Sun/blink_camera_still_image.jpg  # where you want to store still image
+    service: camera.snapshot
+
+snap_picture_utility_room:
+  alias: Blink Camera Snapshot Utility Room
+  mode: single
+  sequence:
+  - entity_id: camera.blink_utility_room
+    service: blink.trigger_camera
+  - delay: 00:00:05
+  - data: {}
+    service: blink.blink_update
+  - data:
+      entity_id: camera.blink_utility_room  #entity id of blink camera as defined in Home Assistant
+      filename: /share/blink/Utility/blink_camera_still_image.jpg  # where you want to store still image
+    service: camera.snapshot
+
+snap_picture_puppy_cam:
+  alias: Blink Camera Snapshot Puppy Camera
+  mode: single
+  sequence:
+  - entity_id: camera.blink_puppy_cam
+    service: blink.trigger_camera
+  - delay: 00:00:05
+  - data: {}
+    service: blink.blink_update
+  - data:
+      entity_id: camera.blink_puppy_cam  #entity id of blink camera as defined in Home Assistant
+      filename: /share/blink/Puppy/blink_camera_still_image.jpg  # where you want to store still image
+    service: camera.snapshot

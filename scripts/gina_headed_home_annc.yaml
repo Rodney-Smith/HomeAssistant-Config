@@ -1,0 +1,12 @@
+###############################################################################
+#  @author         :  Rodney Smith
+#  @date           :  06/23/2022
+#  @package        :  script.gina_headed_home_annc
+#  @description    :  A Collection of Notification Scripts and Configs.
+###############################################################################
+gina_headed_home_annc:
+  alias: Gina Headed Home
+  sequence:
+    - service: script.speech_engine
+      data:
+        call_headed_home_gina: 1

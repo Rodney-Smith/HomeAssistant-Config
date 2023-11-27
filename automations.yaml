@@ -1,0 +1,1805 @@
+- id: '1613259890728'
+  alias: Home - Gina
+  description: When Gina arrives home, turn on her light
+  trigger:
+  - platform: device
+    device_id: 6f77f1da56610053422302e70e02e3bd
+    domain: device_tracker
+    entity_id: 9090cd252ea31ef10377a3087328557e
+    type: enters
+    id: phone
+    zone: zone.home
+  - platform: zone
+    entity_id: person.gina
+    zone: zone.home
+    event: enter
+    id: person
+  condition: []
+  action:
+  - type: turn_on
+    device_id: fc9d96df6f7ad02d9ac4f6e8f09dc3ae
+    entity_id: ac21a38e2af8990f831e2294c85c8067
+    domain: light
+    brightness_pct: 80
+  - service: input_boolean.turn_off
+    data: {}
+    target:
+      entity_id:
+      - input_boolean.sleep_gina
+      - input_boolean.notify_text_gina
+  mode: single
+- id: '1613259951758'
+  alias: Away - Gina
+  description: When Gina leaves the house, turn off her light
+  trigger:
+  - platform: device
+    device_id: 6f77f1da56610053422302e70e02e3bd
+    domain: device_tracker
+    entity_id: 9090cd252ea31ef10377a3087328557e
+    type: leaves
+    zone: zone.home
+  - platform: time
+    at: '19:00:00'
+  condition:
+  - condition: or
+    conditions:
+    - condition: device
+      device_id: 6f77f1da56610053422302e70e02e3bd
+      domain: device_tracker
+      entity_id: 9090cd252ea31ef10377a3087328557e
+      type: is_not_home
+    - condition: state
+      entity_id: person.gina
+      state: not_home
+  action:
+  - type: turn_off
+    device_id: fc9d96df6f7ad02d9ac4f6e8f09dc3ae
+    entity_id: ac21a38e2af8990f831e2294c85c8067
+    domain: light
+  - service: input_boolean.turn_on
+    data: {}
+    target:
+      entity_id:
+      - input_boolean.sleep_gina
+      - input_boolean.notify_text_gina
+  mode: single
+- id: '1613260208483'
+  alias: Home - Rodney
+  description: When Rodney arrives home, turn on his light
+  trigger:
+  - platform: device
+    device_id: 6f8ec8e16afe8f4a854d8d81f0982c27
+    domain: device_tracker
+    entity_id: b0ad0842285614c9af90639c87655a2d
+    type: enters
+    zone: zone.home
+  - platform: zone
+    entity_id: person.rodney
+    zone: zone.home
+    event: enter
+  condition: []
+  action:
+  - type: turn_on
+    device_id: 272c499a928f34c2c6cacbc6106f572b
+    entity_id: 6213f01a9b91cc8375e514e0ba3d4b3d
+    domain: light
+    brightness_pct: 70
+  - service: input_boolean.turn_off
+    data: {}
+    target:
+      entity_id:
+      - input_boolean.sleep_rodney
+      - input_boolean.notify_text_rodney
+  mode: single
+- id: '1613260259645'
+  alias: Away - Rodney
+  description: When Rodney leaves the house, turn off his light
+  trigger:
+  - platform: device
+    device_id: 6f8ec8e16afe8f4a854d8d81f0982c27
+    domain: device_tracker
+    entity_id: b0ad0842285614c9af90639c87655a2d
+    type: leaves
+    zone: zone.home
+  - platform: time
+    at: '19:00:00'
+  condition:
+  - condition: or
+    conditions:
+    - condition: device
+      device_id: 6f8ec8e16afe8f4a854d8d81f0982c27
+      domain: device_tracker
+      entity_id: b0ad0842285614c9af90639c87655a2d
+      type: is_not_home
+    - condition: state
+      entity_id: person.rodney
+      state: not_home
+  action:
+  - type: turn_off
+    device_id: 272c499a928f34c2c6cacbc6106f572b
+    entity_id: 6213f01a9b91cc8375e514e0ba3d4b3d
+    domain: light
+  - service: input_boolean.turn_on
+    data: {}
+    target:
+      entity_id:
+      - input_boolean.sleep_rodney
+      - input_boolean.notify_text_rodney
+  mode: single
+- id: ce0de5fc9f5a4ea7bf38572a265994f5
+  alias: Monitor Smoker Temp - Alert
+  description: Smoker is outside of operating temperature
+  trigger:
+  - platform: state
+    entity_id: sensor.grill_alert_temp
+    to: Alert
+  action:
+  - service: notify.mobile_app_einsteins_iphone
+    data:
+      message: Smoker temperature outside limits. Currently {{ states.sensor.ibbq_probe_4_2.state
+        }} F
+      title: Smoker Temp
+      data:
+        url: /lovelace/bbq
+        sound: pianobar
+        priority: 0
+  mode: single
+- id: 7d113803d5e34dd88cbc1a122d1d0d74
+  alias: Monitor Smoker Temp - Normal
+  description: Smoker within monitoring temperatures
+  trigger:
+  - platform: state
+    entity_id: sensor.grill_alert_temp
+    to: Normal
+  action:
+  - service: notify.mobile_app_einsteins_iphone
+    data:
+      message: Smoker temperature within limits. Currently {{ states.sensor.ibbq_probe_4_2.state
+        }} F
+      title: Smoker Temp
+      data:
+        url: /lovelace/bbq
+        sound: pianobar
+        priority: 0
+  mode: single
+- id: 71f542eb686c4899ad78f2d24e6f0f8f
+  alias: Probe 1 Target Temp
+  trigger:
+  - platform: state
+    entity_id: sensor.target_alert_temp_probe_1
+    to: Alert
+    from: Normal
+  action:
+  - service: notify.mobile_app_einsteins_iphone
+    data:
+      message: Probe 1 has reached the target temp. Currently {{ states.sensor.ibbq_probe_1_2.state
+        }} F
+      title: Target Temperature
+      data:
+        url: /lovelace/bbq
+        sound: pianobar
+        priority: 0
+  mode: single
+- id: 6ddff7a7a125465e8457aefbec7fed34
+  alias: Probe 2 Target Temp
+  trigger:
+  - platform: state
+    entity_id: sensor.target_alert_temp_probe_2
+    to: Alert
+  action:
+  - service: notify.mobile_app_einsteins_iphone
+    data:
+      message: Probe 2 has reached the target temp. Currently {{ states.sensor.ibbq_probe_2_2.state
+        }} F
+      title: Target Temperature
+      data:
+        url: /lovelace/bbq
+        sound: pianobar
+        priority: 0
+  mode: single
+- id: 7ec18de1ddb8434090642c3643d65ca7
+  alias: Probe 3 Target Temp
+  trigger:
+  - platform: state
+    entity_id: sensor.target_alert_temp_probe_3
+    to: Alert
+  action:
+  - service: notify.mobile_app_einsteins_iphone
+    data:
+      message: Probe 3 has reached the target temp. Currently {{ states.sensor.ibbq_probe_3_2.state
+        }} F
+      title: Target Temperature
+      data:
+        url: /lovelace/bbq
+        sound: pianobar
+        priority: 0
+  mode: single
+- id: 5685c3fd05144761b7e4108d21c6653c
+  alias: Doors are Open
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.front_door
+    - binary_sensor.back_door
+    attribute: contact
+    for:
+      hours: 0
+      minutes: 3
+      seconds: 0
+    to: 'on'
+    from: 'off'
+  condition:
+  - condition: state
+    entity_id: input_boolean.notify_to_close
+    state: 'on'
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 30
+  action:
+  - service: script.activate_alexa_actionable_notification
+    data:
+      text: The front door has been open for 5 mins, are you going to close it?
+      event_id: actionable_notification_lock_left_unlocked
+      alexa_device: media_player.of_echo_show8
+  mode: single
+- id: f03d0f12fd434ad6bfcb5eeb2cb7d3e3
+  alias: Front Door Open Response
+  description: ''
+  trigger:
+  - platform: event
+    event_type: alexa_actionable_notification
+    event_data:
+      event_id: actionable_notification_lock_left_unlocked
+      event_response_type: ResponseYes
+  condition: []
+  action:
+  - service: notify.mobile_app_einsteins_iphone
+    data:
+      title: Notificiation
+      message: The front door is open
+  mode: single
+- id: 46c4c41c91dc4734b61f93a92ae59ed2
+  alias: Alexa Actionable 2 (empty office)
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.rodney_phone
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+    from: office
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.automations_office
+      state: 'on'
+    - condition: state
+      entity_id: light.office_lights
+      state: 'on'
+  action:
+  - service: script.activate_alexa_actionable_notification
+    data:
+      text: The office has been empty for a while. Should I turn off the lights?
+      event_id: actionable_notification_office_lights
+      alexa_device: media_player.of_echo_show8
+  mode: single
+- id: 316e573e591143318df621a2f90c2f37
+  alias: Alexa Actionable Response 2 (empty office)
+  description: ''
+  trigger:
+  - platform: event
+    event_type: alexa_actionable_notification
+    event_data:
+      event_id: actionable_notification_office_lights
+      event_response_type: ResponseYes
+  condition: []
+  action:
+  - service: light.turn_off
+    target:
+      entity_id: light.office_lights
+  mode: single
+- id: '1633214548237'
+  alias: Tag - Office Fire TV
+  description: Read Tag and Launch Plex on Office Fire TV
+  trigger:
+  - platform: tag
+    tag_id: 76-2E-68-AF
+    id: RFID_tag
+  condition: []
+  action:
+  - service: media_player.select_source
+    target:
+      entity_id:
+      - media_player.fire_tv_max
+    data:
+      source: Plex
+  mode: single
+- id: '1637714048757'
+  alias: Tag - Toggle Front Lights
+  description: Toggle Front Lights when NFC Tag is scanned
+  trigger:
+  - platform: tag
+    tag_id: f0f00156-7bda-440c-b206-c7f7c59654e1
+  condition: []
+  action:
+  - service: light.toggle
+    data:
+      brightness_pct: 85
+      transition: 120
+      kelvin: 5000
+    target:
+      entity_id:
+      - light.front_porch_1
+      - light.front_porch_2
+      - light.entrance
+  mode: single
+- id: '1646512732701'
+  alias: Play Music
+  description: ''
+  trigger:
+  - platform: tag
+    tag_id: A7-45-B9-B5
+    id: A7-45-B9-B5
+  condition: []
+  action:
+  - service: media_player.play_media
+    data:
+      media_content_id: Snoop Dogg Essentials
+      media_content_type: playlist
+    target:
+      entity_id: media_player.of_echo_show8
+  - service: media_player.media_play
+    data: {}
+    target:
+      entity_id: media_player.of_echo_show8
+  mode: single
+- id: e79b3d7a-3613-43ed-bbab-eb56d7894c74
+  alias: Zone Notification
+  description: Notification when person enters or leaves a zone.
+  trigger:
+  - platform: state
+    entity_id:
+    - person.rodney
+    - person.gina
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 20
+  condition:
+  - condition: template
+    value_template: '{{ trigger.from_state.state != trigger.to_state.state }}'
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.notify_audible
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.notify_text
+      state: 'on'
+  action:
+  - variables:
+      old: '{{ trigger.from_state.state }}'
+      new: '{{ trigger.to_state.state }}'
+      who: '{{ trigger.to_state.name }}'
+  - device_id: 96c538d28429bc4d9bb8bcff078540bf
+    domain: mobile_app
+    type: notify
+    message: '{% if new == "not_home" and old == "home"%} {{ who }} left home {% elif
+      new == "home" %} {{ who }} arrived at home {% elif new == "not_home" %} {{ who
+      }} left {{ old }} {% else %} {{ who }} arrived at {{ new }} {% endif %}'
+    title: Location update {{ states.sensor.time.state }}
+    alias: Send Rodney Notification
+  - device_id: 092725b593e9ccb0e4272f3ccd1f8685
+    domain: mobile_app
+    type: notify
+    message: '{% if new == "not_home" and old == "home"%} {{ who }} left home {% elif
+      new == "home" %} {{ who }} arrived at home {% elif new == "not_home" %} {{ who
+      }} left {{ old }} {% else %} {{ who }} arrived at {{ new }} {% endif %}'
+    title: Location update {{ states.sensor.time.state }}
+    alias: Send Gina Notification
+  - service: notify.alexa_media
+    data:
+      message: '{% if new == "not_home" and old == "home"%} {{ who }} has left the
+        house {% elif new == "home" %} {{ who }} has arrived home! {% elif new ==
+        "not_home" %} {{ who }} left {{ old }} {% else %} {{ who }} has arrived at
+        {{ new }} {% endif %}'
+      target: '{{ state_attr(''sensor.rodney_info'',''media_player'') }}'
+      data:
+        type: tts
+    alias: Announce to Rodney where's Gina
+  - service: notify.alexa_media
+    data:
+      message: '{% if new == "not_home" and old == "home"%} {{ who }} has left the
+        house {% elif new == "home" %} {{ who }} has arrived home! {% elif new ==
+        "not_home" %} {{ who }} left {{ old }} {% else %} {{ who }} has arrived at
+        {{ new }} {% endif %}'
+      target: '{{ state_attr(''sensor.gina_info'',''media_player'') }}'
+      data:
+        type: tts
+    alias: Announce to Gina where's Rodney
+  mode: single
+- id: '1664062493942'
+  alias: Alarmo Automation
+  description: Arm/Disarm Alarmo
+  trigger:
+  - platform: state
+    entity_id:
+    - person.rodney
+    from: home
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 30
+    id: Away
+  - platform: state
+    entity_id:
+    - person.gina
+    from: home
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 30
+    id: Away
+  - platform: state
+    entity_id:
+    - binary_sensor.home_occupied
+    to: 'True'
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 5
+    id: Home
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - Home
+      - condition: and
+        conditions:
+        - condition: state
+          entity_id: input_boolean.override_automation
+          state: 'off'
+        - condition: state
+          entity_id: input_boolean.mode_guest
+          state: 'off'
+        - condition: or
+          conditions:
+          - condition: state
+            entity_id: person.rodney
+            state: home
+            alias: Confirm Rodney is home
+            for:
+              hours: 0
+              minutes: 0
+              seconds: 0
+          - condition: state
+            entity_id: person.gina
+            state: home
+            alias: Confirm Gina is home
+            for:
+              hours: 0
+              minutes: 0
+              seconds: 0
+      sequence:
+      - service: alarmo.arm
+        data:
+          entity_id: alarm_control_panel.alarmo
+          mode: home
+        alias: Alarmo - home
+    - conditions:
+      - condition: trigger
+        id:
+        - Away
+      - condition: and
+        conditions:
+        - condition: state
+          entity_id: input_boolean.override_automation
+          state: 'off'
+        - condition: state
+          entity_id: input_boolean.mode_guest
+          state: 'off'
+        - alias: Confirm Rodney is away
+          condition: state
+          entity_id: person.rodney
+          state: not_home
+          for:
+            hours: 0
+            minutes: 0
+            seconds: 0
+        - alias: Confirm Gina is away
+          condition: state
+          entity_id: person.gina
+          state: not_home
+          for:
+            hours: 0
+            minutes: 0
+            seconds: 0
+      sequence:
+      - service: alarmo.arm
+        data:
+          entity_id: alarm_control_panel.alarmo
+          mode: away
+        alias: Alarmo - away
+  mode: single
+- id: '1664063101764'
+  alias: Illuminate Kitchen
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.gina_phone
+    - sensor.rodney_phone
+    to: kitchen
+  - platform: state
+    entity_id:
+    - binary_sensor.kitchen_occupied
+    to: 'on'
+  condition:
+  - condition: and
+    conditions:
+    - condition: numeric_state
+      entity_id: sensor.kitchen_motion_illuminance
+      attribute: illuminance_lux
+      below: 20
+    - condition: sun
+      before: sunrise
+      after: sunset
+  action:
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id:
+      - light.k_night_light
+      - light.kitchen_lights
+    alias: Turn on Lights
+  - delay:
+      hours: 0
+      minutes: 3
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id:
+      - light.kitchen_lights
+      - light.k_night_light
+    alias: Turn off Lights
+  mode: single
+- id: '1664064103258'
+  alias: Illuminate Bedroom1
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.bedroom1_occupied
+    to: 'on'
+  condition:
+  - condition: and
+    conditions:
+    - condition: numeric_state
+      entity_id: sensor.bedroom1_motion_illuminance
+      below: 20
+    - condition: time
+      after: '17:00:00'
+      before: '23:00:00'
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 50
+    alias: Turn on Lights
+    target:
+      entity_id:
+      - light.bedroom1_light
+  - delay:
+      hours: 0
+      minutes: 3
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
+    alias: Turn off Lights
+    target:
+      entity_id:
+      - light.bedroom1_light
+  mode: single
+- id: '1664064268724'
+  alias: Illuminate Bedroom2
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.bedroom2_occupied
+    to: 'on'
+  condition:
+  - condition: and
+    conditions:
+    - condition: numeric_state
+      entity_id: sensor.bedroom2_motion_illuminance
+      below: 20
+    - condition: time
+      after: '17:00:00'
+      before: '22:00:00'
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 50
+    alias: Turn on Lights
+    target:
+      entity_id:
+      - light.bedroom2_light
+  - delay:
+      hours: 0
+      minutes: 3
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
+    alias: Turn off Lights
+    target:
+      entity_id:
+      - light.bedroom2_light
+  mode: single
+- id: '1667853353157'
+  alias: Tag - Toggle Gina's Light
+  description: Toggle Gina's Light when NFC Tag is scanned
+  trigger:
+  - platform: tag
+    tag_id: 04:33:D2:2A:EF:6E:80
+  condition: []
+  action:
+  - service: light.toggle
+    data: {}
+    target:
+      entity_id: light.gina_light
+  mode: single
+- id: '1668964329728'
+  alias: Youtube Notifications
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.home_assistant
+    - sensor.automate_your_life
+    - sensor.beardedtinker
+    - sensor.burnsha
+    - sensor.digiblurdiy
+    - sensor.drzzs
+    - sensor.everything_smart_home
+    - sensor.the_hook_up
+    - sensor.mark_watt_tech
+    - sensor.paul_hibbert
+    - sensor.slackerlabs
+    - sensor.smart_home_makers
+    - sensor.smart_home_solver
+    - sensor.hoonigan
+    - sensor.stadium_super_trucks
+    - sensor.kalamazoo_snack_boys
+    - sensor.lenni_revel
+    - sensor.scary_snowman_tv
+    attribute: url
+  condition:
+  - condition: template
+    value_template: '{{ trigger.from_state.attributes.url != trigger.to_state.attributes.url
+      }}'
+  action:
+  - choose:
+    - conditions: "{{ trigger.to_state.attributes.live and trigger.entity_id in [\n
+        \ 'sensor.home_assistant'\n]}}\n"
+      sequence:
+      - service: script.notify_text_rodney
+        data_template:
+          who: rodney
+          message: '{{trigger.to_state.attributes.friendly_name}} is live on youtube
+            with {{trigger.to_state.state}}
+
+            '
+  - service: notify.mobile_app_einstein_iphone
+    data:
+      message: '{{ trigger.to_state.state }}'
+      title: "{% if trigger.to_state.attributes.live -%}\n  {{trigger.to_state.attributes.friendly_name}}
+        is Live!\n{%- else -%}\n  New video from {{trigger.to_state.attributes.friendly_name}}\n{%-
+        endif %}\n"
+      data:
+        image: '{{ trigger.to_state.attributes.entity_picture }}'
+        tag: '{{ trigger.entity_id }}'
+        color: green
+        actions:
+        - action: URI
+          title: Watch Now
+          uri: '{{ trigger.to_state.attributes.url }}'
+  mode: queued
+- id: '1668964373470'
+  alias: YouTube Notification - SmartHome
+  description: Notification of new YouTube post from SmartHome content creators
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.home_assistant
+    - sensor.automate_your_life
+    - sensor.beardedtinker
+    - sensor.burnsha
+    - sensor.digiblurdiy
+    - sensor.drzzs
+    - sensor.everything_smart_home
+    - sensor.the_hook_up
+    - sensor.mark_watt_tech
+    - sensor.paul_hibbert
+    - sensor.smart_home_makers
+    - sensor.smart_home_solver
+    - sensor.slackerlabs
+    - sensor.vcloudinfo
+    - sensor.steve_does
+    - sensor.notenoughtech
+    - sensor.juanmtech
+    - sensor.jeff_geerling
+    - sensor.tinkernut
+    - sensor.geerling_engineering
+    - sensor.technithusiast
+    - sensor.reed_s_smart_home
+    attribute: url
+  condition:
+  - condition: template
+    value_template: '{{ trigger.from_state.attributes.url != trigger.to_state.attributes.url
+      }}'
+  action:
+  - service: notify.mobile_app_einstein_iphone
+    data:
+      message: '{{ trigger.to_state.state }}'
+      title: "{% if trigger.to_state.attributes.live -%}\n  {{trigger.to_state.attributes.friendly_name}}
+        is Live!\n{%- else -%}\n  New video from {{trigger.to_state.attributes.friendly_name}}\n{%-
+        endif %}\n"
+      data:
+        image: '{{ trigger.to_state.attributes.entity_picture }}'
+        tag: '{{ trigger.entity_id }}'
+        color: green
+        actions:
+        - action: URI
+          title: Watch Now
+          uri: '{{ trigger.to_state.attributes.url }}'
+  - repeat:
+      count: 1
+      sequence:
+      - delay: 00:03:00
+  mode: single
+- id: '1668964464148'
+  alias: YouTube Notification - Common
+  description: Notification of new YouTube content from creators we both like
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.kalamazoo_snack_boys
+    - sensor.lenni_revel
+    - sensor.scary_snowman_tv
+    - sensor.meredith_capella_the_connected
+    attribute: url
+  condition:
+  - condition: template
+    value_template: '{{ trigger.from_state.attributes.url != trigger.to_state.attributes.url
+      }}'
+  action:
+  - service: notify.mobile_app_ginas_iphone
+    data:
+      message: '{{ trigger.to_state.state }}'
+      title: "{% if trigger.to_state.attributes.live -%}\n  {{trigger.to_state.attributes.friendly_name}}
+        is Live!\n{%- else -%}\n  New video from {{trigger.to_state.attributes.friendly_name}}\n{%-
+        endif %}\n"
+      data:
+        image: '{{ trigger.to_state.attributes.entity_picture }}'
+        tag: '{{ trigger.entity_id }}'
+        color: green
+        actions:
+        - action: URI
+          title: Watch Now
+          uri: '{{ trigger.to_state.attributes.url }}'
+  - service: notify.mobile_app_einstein_iphone
+    data:
+      message: '{{ trigger.to_state.state }}'
+      title: "{% if trigger.to_state.attributes.live -%}\n  {{trigger.to_state.attributes.friendly_name}}
+        is Live!\n{%- else -%}\n  New video from {{trigger.to_state.attributes.friendly_name}}\n{%-
+        endif %}\n"
+      data:
+        image: '{{ trigger.to_state.attributes.entity_picture }}'
+        tag: '{{ trigger.entity_id }}'
+        color: green
+        actions:
+        - action: URI
+          title: Watch Now
+          uri: '{{ trigger.to_state.attributes.url }}'
+  - repeat:
+      count: 1
+      sequence:
+      - delay: 00:03:00
+  mode: single
+- id: '1668966172500'
+  alias: YouTube Notification - Automotive
+  description: Notification of new YouTube post from Automotive content creators
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.hoonigan
+    - sensor.stadium_super_trucks
+    - sensor.gas_monkey_garage_richard_rawlings
+    - sensor.supercar_blondie
+    - sensor.thesmokingtire
+    - sensor.the_drive
+    - sensor.heavydsparks
+    attribute: url
+  condition:
+  - condition: template
+    value_template: '{{ trigger.from_state.attributes.url != trigger.to_state.attributes.url
+      }}'
+  action:
+  - service: notify.mobile_app_einstein_iphone
+    data:
+      message: '{{ trigger.to_state.state }}'
+      title: "{% if trigger.to_state.attributes.live -%}\n  {{trigger.to_state.attributes.friendly_name}}
+        is Live!\n{%- else -%}\n  New video from {{trigger.to_state.attributes.friendly_name}}\n{%-
+        endif %}\n"
+      data:
+        image: '{{ trigger.to_state.attributes.entity_picture }}'
+        tag: '{{ trigger.entity_id }}'
+        color: green
+        actions:
+        - action: URI
+          title: Watch Now
+          uri: '{{ trigger.to_state.attributes.url }}'
+  - repeat:
+      count: 1
+      sequence:
+      - delay: 00:03:00
+  mode: single
+- id: '1668971242883'
+  alias: YouTube Notification - Misc
+  description: Notification of new YouTube post from miscellaneous content creators
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.mary_spender
+    - sensor.rick_beato
+    - sensor.simon_sinek
+    - sensor.echelon_front
+    - sensor.mark_rober
+    - sensor.dude_perfect
+    attribute: url
+  condition:
+  - condition: template
+    value_template: '{{ trigger.from_state.attributes.url != trigger.to_state.attributes.url
+      }}'
+  action:
+  - service: notify.mobile_app_einstein_iphone
+    data:
+      message: '{{ trigger.to_state.state }}'
+      title: "{% if trigger.to_state.attributes.live -%}\n  {{trigger.to_state.attributes.friendly_name}}
+        is Live!\n{%- else -%}\n  New video from {{trigger.to_state.attributes.friendly_name}}\n{%-
+        endif %}\n"
+      data:
+        image: '{{ trigger.to_state.attributes.entity_picture }}'
+        tag: '{{ trigger.entity_id }}'
+        color: green
+        actions:
+        - action: URI
+          title: Watch Now
+          uri: '{{ trigger.to_state.attributes.url }}'
+  - repeat:
+      count: 1
+      sequence:
+      - delay: 00:03:00
+  mode: single
+- id: '1669163650660'
+  alias: Birthday Notification
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.bday_lydia
+    - sensor.bday_catelynn
+    - sensor.bday_gina
+    - sensor.bday_kelen
+    - sensor.bday_reannon
+    - sensor.bday_rodney
+    - sensor.bday_spencer
+    - sensor.bday_tori
+    - sensor.bday_judy
+    - sensor.bday_meredith
+    - sensor.bday_natalie
+    to: 'on'
+  condition:
+  - condition: time
+    after: 08:00:00
+    before: 09:30:00
+  action:
+  - service: media_player.volume_set
+    data_template:
+      entity_id:
+      - '{{state_attr(''sensor.rodney_info'',''media_player'')}}'
+      - '{{state_attr(''sensor.gina_info'',''media_player'')}}'
+      volume_level: '{{states(''input_number.tts_announcement'')}}'
+    alias: Set announcement volume
+  - service: notify.alexa_media
+    data:
+      message: It is someones birthday today!
+      title: Birthday Notification
+      target: '{{state_attr(''sensor.rodney_info'',''media_player'')}}'
+      data:
+        type: tts
+    alias: Announce to Rodney's Notify Setting
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 2
+      milliseconds: 0
+  - service: media_player.volume_set
+    data_template:
+      entity_id:
+      - '{{state_attr(''sensor.rodney_info'',''media_player'')}}'
+      - '{{state_attr(''sensor.gina_info'',''media_player'')}}'
+      volume_level: '{{states(''input_number.tts_volume'')}}'
+    alias: Reset media player volume
+  mode: single
+- id: '1672788555718'
+  alias: Turn On Front Lights at Front Door Open
+  description: Turn on lights for 10 minutes when the front door is opened at night
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.front_door
+    from: 'off'
+    to: 'on'
+  condition:
+  - condition: and
+    conditions:
+    - condition: sun
+      after: sunset
+    - condition: time
+      before: '23:59:59'
+  action:
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id:
+      - light.entrance
+      - light.foyer
+  - service: timer.start
+    data: {}
+    target:
+      entity_id: timer.lights
+  mode: single
+- id: '1672845184812'
+  alias: Turn Off Front Lights at End of Timer
+  description: Turn off lights after 10 minute timer counts down
+  trigger:
+  - platform: state
+    entity_id:
+    - timer.lights
+    from: active
+    to: idle
+  condition: []
+  action:
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id:
+      - light.entrance
+      - light.foyer
+  mode: single
+- id: '1675968657107'
+  alias: Garbage Day
+  description: Reminder to put the bins out for Garbage collection
+  trigger:
+  - platform: calendar
+    event: start
+    offset: '-5:0:0'
+    entity_id: calendar.garbage_collection
+  condition: []
+  action:
+  - service: media_player.volume_set
+    data_template:
+      entity_id:
+      - '{{state_attr(''sensor.rodney_info'',''media_player'')}}'
+      - '{{state_attr(''sensor.gina_info'',''media_player'')}}'
+      volume_level: '{{states(''input_number.tts_announcement'')}}'
+    alias: Set announcement volume
+  - alias: Send Rodney Notification
+    service: notify.mobile_app_einstein_iphone
+    data:
+      message: Trash Day Tomorrow!
+      title: Just to let you know...
+  - alias: Send Gina Notification
+    service: notify.mobile_app_ginas_iphone
+    data:
+      message: Trash Day Tomorrow!
+      title: Just to let you know...
+  - alias: Announce Garbage Day to Rodney
+    service: notify.alexa_media
+    data:
+      message: Don't forget to put out the Trash Tomorrow!
+      target: '{{ state_attr(''sensor.rodney_info'',''media_player'') }}'
+      data:
+        type: tts
+  - alias: Announce Garbage Day to Gina
+    service: notify.alexa_media
+    data:
+      message: Don't forget to put out the Trash Tomorrow!
+      target: '{{ state_attr(''sensor.gina_info'',''media_player'') }}'
+      data:
+        type: tts
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 2
+      milliseconds: 0
+  - service: media_player.volume_set
+    data_template:
+      entity_id:
+      - '{{state_attr(''sensor.rodney_info'',''media_player'')}}'
+      - '{{state_attr(''sensor.gina_info'',''media_player'')}}'
+      volume_level: '{{ tates(''input_number.tts_volume'')}}'
+    alias: Reset media player volume
+  mode: single
+- id: '1676942779066'
+  alias: Announce Almost Home
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: proximity.home
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+    below: 5
+  condition:
+  - condition: state
+    entity_id: proximity.home
+    attribute: dir_of_travel
+    state: towards
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+  action:
+  - service: notify.alexa_media
+    data:
+      message: Almost Home!
+      target: '{{ state_attr(''sensor.rodney_info'',''media_player'') }}'
+      data:
+        type: tts
+  mode: single
+- id: '1679256572000'
+  alias: Laundry - Dryer Done
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.ly_dryer_aqara_vibration
+    from: 'on'
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+  condition: []
+  action:
+  - service: notify.ios_rodney
+    data:
+      message: The dryer is done
+  mode: single
+- id: '1679256889154'
+  alias: Laundry - Washer Done
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.washing_machine_complete
+    from: running
+    to: complete
+    for:
+      hours: 0
+      minutes: 3
+      seconds: 0
+  - platform: state
+    entity_id:
+    - sensor.washing_machine_status
+    from: running
+    to: complete
+    for:
+      hours: 0
+      minutes: 3
+      seconds: 0
+  condition: []
+  action:
+  - service: notify.ios_rodney
+    data:
+      message: The laundry is ready to be moved to the dryer
+      title: ALERT
+    alias: Notify Rodney's iPhone
+  - service: notify.ios_gina
+    data:
+      message: The laundry is ready to be moved to the dryer
+      title: ALERT
+    alias: Notify Gina's iPhone
+  mode: single
+- id: f81d94d834d1444682801aa62b38e8e9
+  alias: Media Player Volume
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_boolean.notify_audible
+    to: 'on'
+  - platform: state
+    entity_id:
+    - input_number.tts_volume
+  - platform: state
+    entity_id:
+    - input_number.tts_announcement
+  action:
+  - service: media_player.volume_set
+    alias: Set Echo Volume
+    data:
+      entity_id:
+      - media_player.of_echo_show8
+      - media_player.left_echo_dot
+      - media_player.right_echo_dot
+      - media_player.lr_echo_show5
+      - media_player.left_echo
+      - media_player.right_echo
+      - media_player.bedroom_echo_dot
+      - media_player.echo_show5
+      - media_player.guest1_echo_dot
+      - media_player.guest2_echo_dot
+      volume_level: '{{ states(''input_number.tts_volume'') | float }}'
+  - service: media_player.volume_set
+    alias: Set Flex Volume
+    data:
+      entity_id:
+      - media_player.kitchen_echo_flex
+      - media_player.hall_echo_flex
+      volume_level: '{{ states(''input_number.tts_announcement'') | float }}'
+  initial_state: true
+- id: '1684625650660'
+  alias: Curtains - Open at Solar Noon
+  description: On days about 80
+  trigger:
+  - platform: time
+    at: sensor.sun_next_noon
+  condition:
+  - condition: and
+    conditions:
+    - condition: sun
+      after: sunrise
+      before: sunset
+    - condition: template
+      value_template: '{{ state_attr(''sun.sun'', ''elevation'') | float > 0 }}'
+    - condition: numeric_state
+      entity_id: sensor.todays_high_temp
+      above: 65
+  action:
+  - service: cover.open_cover
+    data: {}
+    target:
+      device_id:
+      - 66c0b785419f0962b0696266e792c2f4
+      - f00f0f59b7d778b8de7321ddd2c95027
+  mode: single
+- id: '1684678967904'
+  alias: Curtains - Open At Dawn
+  description: ''
+  trigger:
+  - platform: time
+    at: sensor.sun_next_dawn
+  condition: []
+  action:
+  - service: cover.open_cover
+    data: {}
+    target:
+      device_id:
+      - 66c0b785419f0962b0696266e792c2f4
+      - f00f0f59b7d778b8de7321ddd2c95027
+  mode: single
+- id: '1684681597237'
+  alias: Curtains - Close 90min after Sunrise on Conditions
+  description: It is going to be over 85 or it is Spring or Summer
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: +01:30:00
+  condition:
+  - condition: or
+    conditions:
+    - condition: numeric_state
+      entity_id: sensor.todays_high_temp
+      above: 88
+    - condition: state
+      entity_id: sensor.season
+      state: spring
+    - condition: state
+      entity_id: sensor.season
+      state: summer
+  action:
+  - service: cover.close_cover
+    data: {}
+    target:
+      device_id:
+      - 66c0b785419f0962b0696266e792c2f4
+      - f00f0f59b7d778b8de7321ddd2c95027
+  mode: single
+- id: '1684681979199'
+  alias: Curtains - Close at Dusk
+  description: Close curtains at dusk
+  trigger:
+  - platform: time
+    at: sensor.sun_next_dusk
+  condition: []
+  action:
+  - service: cover.close_cover
+    data: {}
+    target:
+      device_id:
+      - 66c0b785419f0962b0696266e792c2f4
+      - f00f0f59b7d778b8de7321ddd2c95027
+  mode: single
+- id: '1685655430440'
+  alias: Office Lights - Off
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.office_occupied
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+  condition: []
+  action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.office_quiet
+    metadata: {}
+  mode: single
+- id: '1686766736822'
+  alias: Office Lights - On
+  description: Turn on Office Lights when occupied for more than 2 minutes
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.office_occupied
+    to: 'on'
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.automations_office
+      state: 'on'
+    - condition: time
+      after: 07:00:00
+      before: '16:00:00'
+      weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.office_party
+    metadata: {}
+  mode: single
+- id: '1686843405064'
+  alias: Backup Notification
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.backups_stale
+    to: 'on'
+  condition: []
+  action:
+  - service: notify.mobile_app_einsteins_iphone
+    data:
+      title: ALERT
+      message: Home Assistant Backup experienced a problem
+  mode: single
+- id: '1687387332194'
+  alias: Illuminate Backyard On
+  description: Turn ON Backyard lights at dusk
+  trigger:
+  - platform: time
+    at: sensor.sun_next_dusk
+  action:
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id: light.first_light
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.mj_s01_b71a3c
+  mode: single
+- id: '1687387556534'
+  alias: Illuminate Backyard Off
+  description: Turn OFF Backyard lights at dawn
+  trigger:
+  - platform: time
+    at: sensor.sun_next_dawn
+  condition: []
+  action:
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.first_light
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.mj_s01_b71a3c
+  mode: single
+- id: '1687818705226'
+  alias: MacroPad - Meeting
+  description: Change the Matrix Portal to display In A Meeting
+  trigger:
+  - platform: state
+    entity_id:
+    - input_button.macropad_meeting
+    to:
+  action:
+  - service: mqtt.publish
+    data:
+      topic: macropad/peripheral
+      payload_template: '{"key_number": 11}'
+  mode: single
+- id: '1687819524266'
+  alias: MacroPad - Phone
+  description: Change the Matrix Portal to display On the Phone
+  trigger:
+  - platform: state
+    entity_id:
+    - input_button.macropad_phone
+    to:
+  action:
+  - service: mqtt.publish
+    data:
+      topic: macropad/peripheral
+      payload_template: '{"key_number": 10}'
+  mode: single
+- id: '1687819569715'
+  alias: MacroPad - Blank
+  description: Change the Matrix Portal to a blank display
+  trigger:
+  - platform: state
+    entity_id:
+    - input_button.macropad_blank
+    to:
+  action:
+  - service: mqtt.publish
+    data:
+      topic: macropad/peripheral
+      payload_template: '{"key_number": 9}'
+  mode: single
+- id: '1687819748504'
+  alias: MacroPad - Office Party
+  description: Launch the Office Party Scene
+  trigger: []
+  action:
+  - service: mqtt.publish
+    data:
+      topic: macropad/peripheral
+      payload_template: '{"key_number": 1}'
+  mode: single
+- id: '1688242495014'
+  alias: Illuminate - 4th of July
+  description: ''
+  trigger:
+  - platform: time
+    at: sensor.sun_next_setting
+  condition: []
+  action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.4th_of_july
+    metadata: {}
+  - delay:
+      hours: 5
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
+  - service: scene.turn_on
+    target:
+      entity_id: scene.cool_white
+    metadata: {}
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id:
+      - light.front
+      - light.side
+  mode: single
+- id: '1688850575592'
+  alias: Communication - End
+  description: Close FaceTime, Phone, Teams, Skype, Zoom, Meet, or WebEx Apps
+  trigger:
+  - platform: webhook
+    allowed_methods:
+    - POST
+    - PUT
+    local_only: true
+    webhook_id: reset-rodney
+  condition:
+  - condition: state
+    entity_id: sensor.rodney_info
+    state: office
+  action:
+  - service: script.turn_on
+    data: {}
+    target:
+      entity_id:
+      - script.matrixportal_blank
+  mode: single
+- id: '1688850702217'
+  alias: Communication - Meeting
+  description: Open Teams, Skype, Zoom, Meet, or WebEx Apps
+  trigger:
+  - platform: webhook
+    allowed_methods:
+    - POST
+    - PUT
+    local_only: true
+    webhook_id: meeting-rodney
+  condition:
+  - condition: state
+    entity_id: sensor.rodney_info
+    state: office
+  action:
+  - service: scene.turn_on
+    data: {}
+    target:
+      entity_id: scene.led_strip_color
+    enabled: false
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 3
+      milliseconds: 0
+    alias: Wait 3s
+    enabled: false
+  - service: script.turn_on
+    data: {}
+    target:
+      entity_id:
+      - script.matrixportal_meeting
+  mode: single
+- id: '1688850755038'
+  alias: Communication - Phone
+  description: Open FaceTime or Phone Apps
+  trigger:
+  - platform: webhook
+    allowed_methods:
+    - POST
+    - PUT
+    local_only: true
+    webhook_id: phone-rodney
+  condition:
+  - condition: state
+    entity_id: sensor.rodney_info
+    state: office
+  action:
+  - service: scene.turn_on
+    data: {}
+    target:
+      entity_id: scene.led_strip_color
+    enabled: false
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 3
+      milliseconds: 0
+    enabled: false
+  - service: script.turn_on
+    data: {}
+    target:
+      entity_id:
+      - script.matrixportal_phone
+  mode: single
+- id: '1700455093951'
+  alias: Tag - Toggle Office Lights
+  description: ''
+  trigger:
+  - platform: tag
+    tag_id: 2b82cdf5-2302-4c66-8d10-6b1137b3e118
+  condition: []
+  action:
+  - service: light.toggle
+    data: {}
+    target:
+      area_id: office
+  mode: single
+- id: '1700612642167'
+  alias: Bedroom1 - Closet Light
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_light.yaml
+    input:
+      motion_entity: binary_sensor.closet_motion_motion
+      light_target:
+        entity_id: light.closet_bulb_light
+      no_motion_wait: 90
+- id: '1700613005186'
+  alias: Hall - Linen Closet
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.linen_closet_door
+    to: 'on'
+    id: Opened
+  - platform: state
+    entity_id:
+    - binary_sensor.linen_closet_door
+    to: 'off'
+    id: Closed
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - Opened
+      sequence:
+      - service: light.turn_on
+        data: {}
+        target:
+          entity_id: light.linen_closet_bulb_light
+    - conditions:
+      - condition: trigger
+        id:
+        - Closed
+      sequence:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.linen_closet_bulb_light
+  mode: single
+- id: '1668631502774'
+  alias: Asleep - Rodney
+  description: Mark person asleep and turn off lights
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.sleep_rodney
+    to: 'on'
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+  condition:
+  - condition: zone
+    entity_id: person.rodney
+    zone: zone.home
+  action:
+  - delay:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id:
+      - light.rodney_light
+      - light.of_light_zb
+    alias: Turn off Lights
+  - service: scene.turn_on
+    target:
+      entity_id: scene.office_quiet
+    metadata: {}
+  mode: single
+- id: '1668642163748'
+  alias: Awake - Rodney
+  description: Mark person awake
+  trigger:
+  - platform: webhook
+    allowed_methods:
+    - POST
+    - PUT
+    local_only: false
+    webhook_id: awake-rodney
+    id: webhook
+  - platform: state
+    entity_id:
+    - sensor.rodney_phone
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+    from: main_bedroom
+    enabled: true
+    id: espresense
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.sleep_rodney
+      state: 'on'
+    - condition: zone
+      entity_id: person.rodney
+      zone: zone.home
+    - condition: time
+      after: 04:30:00
+      before: '20:00:00'
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - webhook
+      sequence:
+      - service: input_boolean.turn_off
+        data: {}
+        target:
+          entity_id: input_boolean.sleep_rodney
+    - conditions:
+      - condition: trigger
+        id:
+        - espresense
+      sequence:
+      - service: input_boolean.turn_off
+        data: {}
+        target:
+          entity_id: input_boolean.sleep_rodney
+  mode: single
+- id: '1668642229547'
+  alias: Awake - Gina
+  description: 'Gina wakes up in the main_bedroom and it is before sunrise, Turn on
+    Gina''s Nightstand and Gina''s Light
+
+
+    Gina leaves the main_bedroom, turn off main bedroom lights'
+  trigger:
+  - platform: webhook
+    allowed_methods:
+    - POST
+    - PUT
+    local_only: true
+    webhook_id: awake-gina
+    id: webhook
+  - platform: state
+    entity_id:
+    - sensor.gina_phone
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+    id: espresense
+    to: living_room
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.sleep_gina
+      state: 'on'
+    - condition: time
+      after: 05:00:00
+      before: '10:00:00'
+  action:
+  - choose:
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: trigger
+          id:
+          - webhook
+        - condition: time
+          before: '10:00:00'
+      sequence:
+      - service: input_boolean.turn_off
+        data: {}
+        target:
+          entity_id: input_boolean.sleep_gina
+      - service: light.turn_on
+        data:
+          brightness_pct: 50
+        target:
+          entity_id:
+          - light.gina_nightstand
+      - service: light.turn_on
+        data:
+          brightness_pct: 80
+        target:
+          entity_id:
+          - light.gina_light
+    - conditions:
+      - condition: trigger
+        id:
+        - espresense
+      sequence:
+      - service: input_boolean.turn_off
+        data: {}
+        target:
+          entity_id: input_boolean.sleep_gina
+      - service: light.turn_off
+        data: {}
+        target:
+          area_id: main_bedroom
+  mode: single
+- id: '1668631606269'
+  alias: Asleep - Gina
+  description: Mark person asleep and turn off lights
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.sleep_gina
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+    to: 'on'
+  condition:
+  - condition: zone
+    entity_id: person.gina
+    zone: zone.home
+  action:
+  - delay:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id:
+      - light.gina_light
+  mode: single
+- id: '1701025793521'
+  alias: Freeze Warning
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.tonights_low_temp
+    - sensor.outside_temperature
+    below: 34
+    id: Below
+  - platform: numeric_state
+    entity_id:
+    - sensor.tonights_low_temp
+    - sensor.outside_temperature
+    above: 35
+    id: Above
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - Below
+      - condition: state
+        entity_id: input_boolean.freeze_warning
+        state: 'off'
+      sequence:
+      - service: input_boolean.turn_on
+        data: {}
+        target:
+          entity_id: input_boolean.freeze_warning
+    - conditions:
+      - condition: trigger
+        id:
+        - Above
+      - condition: state
+        entity_id: input_boolean.freeze_warning
+        state: 'on'
+      sequence:
+      - service: input_boolean.turn_off
+        data: {}
+        target:
+          entity_id: input_boolean.freeze_warning
+  mode: single

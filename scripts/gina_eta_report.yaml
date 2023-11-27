@@ -1,0 +1,12 @@
+###############################################################################
+#  @author         :  Rodney Smith
+#  @date           :  06/23/2022
+#  @package        :  script.gina_eta_report
+#  @description    :  A Collection of Notification Scripts and Configs.
+###############################################################################
+gina_eta_report:
+  alias: Gina's ETA
+  sequence:
+    - service: script.speech_engine
+      data:
+        call_gina_location: 1

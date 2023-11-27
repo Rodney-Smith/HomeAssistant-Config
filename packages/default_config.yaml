@@ -1,0 +1,151 @@
+###############################################################################
+#  @author         :  Rodney Smith
+#  @date           :  06/22/2022
+#  @homeassistant  :  default_config
+#  @description    :  The default configuration integration.
+# This integration is a meta-component and configures a default set of
+# integrations for Home Assistant to load. The integrations that will be
+# loaded are:
+#
+# Automation (automation), Assist pipeline (assist_pipeline), Backup (backup),
+# Bluetooth (bluetooth), Configuration (config), Conversation (conversation),
+# Counter (counter), DHCP Discovery (dhcp), Energy (energy), Frontend (frontend),
+# Hardware (hardware), History (history), Home Assistant Alerts (homeassistant_alerts),
+# Home Assistant Cloud (cloud), Image upload (image_upload), Input boolean (input_boolean),
+# Input button (input_button), Input datetime (input_datetime), Input number (input_number),
+# Input select (input_select), Input text (input_text), Logbook (logbook), Logger (logger),
+# Map (map), Media Source (media_source), Mobile App Support (mobile_app),
+# My Home Assistant (my), Network (network), Person (person), Schedule (schedule),
+# Scene (scene), Scripts (script), Simple Service Discovery Protocol (SSDP) (ssdp),
+# Stream (stream), Sun (sun), System Health (system_health), Tag (tag), Timer (timer),
+# USB (usb), Webhooks (webhook), Zero-configuration networking (zeroconf) (zeroconf),
+# Zone (zone)
+#                    https://www.home-assistant.io/integrations/default_config/
+###############################################################################
+default_config: ~
+
+###############################################################################
+#  @homeassistant  :  automation
+#  @description    :  Automations in Home Assistant allow you to automatically
+#                     respond to things that happen. You can turn the lights on
+#                     at sunset or pause the music when you receive a call.
+#                                https://www.home-assistant.io/docs/automation/
+###############################################################################
+automation: !include ../automations.yaml
+
+###############################################################################
+#  @homeassistant  :  bluetooth
+#  @description    :  The Bluetooth integration will detect nearby Bluetooth 
+#                     devices. Discovered devices will show up in the discovered
+#                     section on the integrations page in the configuration panel.
+#                         https://www.home-assistant.io/integrations/bluetooth/
+###############################################################################
+bluetooth:
+
+###############################################################################
+#  @homeassistant  :  frontend
+#  @description    :  This offers the official frontend to control Home Assistant.
+#                     This integration is enabled by default unless you’ve
+#                     disabled or removed the default_config: line from your
+#                     configuration.
+#                          https://www.home-assistant.io/integrations/frontend/
+###############################################################################
+frontend:
+  themes: !include_dir_merge_named ../themes
+
+###############################################################################
+#  @homeassistant  :  input_number
+#  @description    :  The input_number integration allows the user to define values
+#                     that can be controlled via the frontend and can be used
+#                     within conditions of automation. The frontend can display
+#                     a slider, or a numeric input box. Changes to the slider or
+#                     numeric input box generate state events.
+#                      https://www.home-assistant.io/integrations/input_number/
+###############################################################################
+input_number: !include ../entities/input_number.yaml
+
+###############################################################################
+#  @homeassistant  :  input_text
+#  @description    :  The input_text integration allows the user to define values
+#                     that can be controlled via the frontend and can be used
+#                     within conditions of automation. Changes to the value stored
+#                     in the text box generate state events.
+#                        https://www.home-assistant.io/integrations/input_text/
+###############################################################################
+input_text: !include ../entities/input_text.yaml
+
+###############################################################################
+#  @homeassistant  :  mobile_app
+#  @description    :  The Mobile App component allows Home Assistant mobile
+#                     apps to easily integrate with Home Assistant.
+#                          https://www.home-assistant.io/components/mobile_app/
+###############################################################################
+mobile_app:
+
+###############################################################################
+#  @homeassistant  :  person
+#  @description    :  The person integration allows connecting device tracker
+#                     entities to one or more person entities. The state updates
+#                     of a connected device tracker will set the state of the person. 
+#                              https://www.home-assistant.io/components/person/
+###############################################################################
+person:
+
+###############################################################################
+#  @homeassistant  :  scene
+#  @description    :  A scene entity is an entity that can restore the state of
+#                     a group of entities. Scenes can be user-defined or can be
+#                     provided through an integration.
+#                               https://www.home-assistant.io/components/scene/
+###############################################################################
+scene: !include ../scenes.yaml
+
+###############################################################################
+#  @homeassistant  :  ssdp
+#  @description    :  The ssdp “Simple Service Discovery Protocol” (part of
+#                     UPnP) integration will scan the network for supported
+#                     devices and services. Discovered integrations will show up
+#                     in the discovered section on the integrations page in the
+#                     configuration panel.
+#                              https://www.home-assistant.io/integrations/ssdp/
+###############################################################################
+ssdp:
+
+###############################################################################
+#  @homeassistant  :  stream
+#  @description    :  The stream component provides a way to proxy live streams
+#                     through Home Assistant.
+#                            https://www.home-assistant.io/integrations/stream/
+###############################################################################
+stream:
+
+###############################################################################
+#  @homeassistant  :  system_health
+#  @description    :  The System Health component provides an API to offer
+#                     information on the system and its components.
+#                     https://www.home-assistant.io/integrations/system_health/
+###############################################################################
+system_health:
+
+###############################################################################
+#  @homeassistant  :  sun
+#  @description    :  The sun component will use your current location to track
+#                     if the sun is above or below the horizon.
+#                               https://www.home-assistant.io/integrations/sun/
+###############################################################################
+sun:
+  elevation: !secret ha_elevation
+
+###############################################################################
+#  @homeassistant  :  zeroconf
+#  @description    :  Zeroconf, Bonjour, Rendezvous, and Avahi
+#                          https://www.home-assistant.io/integrations/zeroconf/
+###############################################################################
+zeroconf:
+  
+###############################################################################
+#  @homeassistant  :  zone
+#  @description    :  Allow you to specify certain regions on earth (for now).
+#                              https://www.home-assistant.io/integrations/zone/
+###############################################################################
+zone: !include_dir_list ../entities/zones

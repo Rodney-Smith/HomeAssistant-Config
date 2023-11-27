@@ -1,0 +1,65 @@
+###############################################################################
+#   @author         :  Rodney Smith
+#   @date           :  07/04/2023
+#   @homeassistant  :  script
+#   @description    :  Play Music in Office
+###############################################################################
+start_alternative_music:
+  alias: Start Alternative Music
+  mode: single
+  icon: "mdi:play"
+  sequence:
+  - service: media_player.play_media
+    data:
+      media_content_id: Start Alternative music # Routine name in Alexa app, this is set to play on All Speakers
+      media_content_type: routine
+    target:
+      entity_id: media_player.of_echo_show8 # need to select a default player
+
+start_classic_rock_music:
+  alias: Start Classic Rock Music
+  mode: single
+  icon: "mdi:play"
+  sequence:
+  - service: media_player.play_media
+    data:
+      media_content_id: Start Classic Rock music # Routine name in Alexa app, this is set to play on All Speakers
+      media_content_type: routine
+    target:
+      entity_id: media_player.of_echo_show8 # need to select a default player
+
+start_country_music:
+  alias: Start Country Music
+  mode: single
+  icon: "mdi:play"
+  sequence:
+  - service: media_player.play_media
+    data:
+      media_content_id: Start Country music # Routine name in Alexa app, this is set to play on All Speakers
+      media_content_type: routine
+    target:
+      entity_id: media_player.of_echo_show8 # need to select a default player
+
+start_rock_music:
+  alias: Start Rock Music
+  mode: single
+  icon: "mdi:play"
+  sequence:
+  - service: media_player.play_media
+    data:
+      media_content_id: Start Rock music # Routine name in Alexa app, this is set to play on All Speakers
+      media_content_type: routine
+    target:
+      entity_id: media_player.of_echo_show8 # need to select a default player
+
+spread_christmas_cheer:
+  alias: Spread Christmas Cheer
+  mode: single
+  icon: "mdi:play"
+  sequence:
+  - service: media_player.play_media
+    data:
+      media_content_id: Spread Christmas Cheer # Routine name in Alexa app, this is set to play on All Speakers
+      media_content_type: routine
+    target:
+      entity_id: media_player.lr_echo_show5 # need to select a default player

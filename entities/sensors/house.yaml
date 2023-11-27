@@ -1,0 +1,208 @@
+##############################################################################
+#   @author         :   Rodney Smith
+#   @date           :   11/22/2023
+#   @package        :   sensors
+#   @description    :   Add door & window sensors to Home Assistant
+#                      https://www.home-assistant.io/integrations/history_stats
+###############################################################################
+- platform: history_stats
+  name: Rodney Driving Time
+  entity_id: binary_sensor.rodney_driving
+  state: "on"
+  type: time
+  end: "{{ now() }}"
+  duration:
+    days: 7
+- platform: history_stats
+  name: Gina Driving Time
+  entity_id: binary_sensor.gina_driving
+  state: "on"
+  type: time
+  end: "{{ now() }}"
+  duration:
+    days: 7
+- platform: history_stats
+  name: Speech time
+  entity_id: media_player.of_echo_show8
+  state: "playing"
+  type: time
+  end: "{{ now() }}"
+  duration:
+    days: 8
+- platform: history_stats
+  name: TV Time
+  entity_id: media_player.65_tcl_roku_tv
+  state: "playing"
+  type: time
+  end: "{{ now() }}"
+  duration:
+    hours: 24
+- platform: history_stats
+  name: Game Time
+  entity_id: media_player.xboxseriesx
+  state: "playing"
+  type: time
+  end: "{{ now() }}"
+  duration:
+    hours: 24
+- platform: history_stats
+  name: Washer Time
+  entity_id: sensor.washer_status
+  state: "running"
+  type: time
+  end: "{{ now() }}"
+  duration:
+    days: 7
+
+- platform: statistics
+  entity_id: sensor.bedroom1_temperature
+  name: "Bedroom1 Temp Stats"
+  state_characteristic: mean
+  sampling_size: 30
+- platform: statistics
+  entity_id: sensor.bedroom2_temperature
+  name: "Bedroom2 Temp Stats"
+  state_characteristic: mean
+  sampling_size: 30
+- platform: statistics
+  entity_id: sensor.livingroom_temperature
+  name: "Living Room Temp Stats"
+  state_characteristic: mean
+  sampling_size: 30
+- platform: statistics
+  entity_id: sensor.mainbedroom_temperature
+  name: "Main Bedroom Temp Stats"
+  state_characteristic: mean
+  sampling_size: 30
+- platform: statistics
+  entity_id: sensor.kitchen_temperature
+  name: "Kitchen Temp Stats"
+  state_characteristic: mean
+  sampling_size: 30
+- platform: statistics
+  entity_id: sensor.office_temperature
+  name: "Office Temp Stats"
+  state_characteristic: mean
+  sampling_size: 30
+
+- platform: min_max
+  name: Inside Temp Stats
+  entity_ids:
+    - sensor.bedroom1_temperature
+    - sensor.bedroom2_temperature
+    - sensor.livingroom_temperature
+    - sensor.mainbedroom_temperature
+    - sensor.kitchen_temperature
+    - sensor.office_temperature
+
+- platform: history_stats
+  name: Outside Lights
+  entity_id: group.outside_lights
+  state: "on"
+  type: time
+  end: "{{ now() }}"
+  duration:
+    hours: 24
+- platform: statistics
+  name: Wind Speed Stats
+  entity_id: sensor.wind_speed
+  state_characteristic: mean
+  sampling_size: 500
+- platform: statistics
+  name: Visibility Stats
+  entity_id: sensor.visibility
+  state_characteristic: mean
+  sampling_size: 500
+- platform: statistics
+  name: Temperature Stats
+  entity_id: sensor.outside_temperature
+  state_characteristic: mean
+  sampling_size: 500
+- platform: statistics
+  name: Humidity Stats
+  entity_id: sensor.humidity
+  state_characteristic: mean
+  sampling_size: 500
+
+- platform: template
+  sensors:
+    sensor_count:
+      friendly_name: "Number of Sensors"
+      value_template: >-
+        {{ states.sensor | rejectattr('state', 'eq', 'unavailable') | list | count }}
+    automation_count:
+      friendly_name: "Number of Automations"
+      icon_template: mdi:cog
+      unique_id: 322734e4080940a787f4e2c2571bf5ed
+      value_template: >-
+        {{ states.automation| rejectattr('state', 'eq', 'unavailable') | list | count }}
+    script_count:
+      friendly_name: "Number of Scripts"
+      icon_template: mdi:script
+      unique_id: 53efaace19e540a1bdf8aa3195e56403
+      value_template: >-
+        {{ states.script | rejectattr('state', 'eq', 'unavailable') | list | count }}
+    binary_sensor_count:
+      friendly_name: "Number of Binary Sensors"
+      icon_template: mdi:leak
+      unique_id: 710682540ad944f695cd8204619426d8
+      value_template: >-
+        {{ states.binary_sensor | rejectattr('state', 'eq', 'unavailable') | list | count }}
+    tracker_count:
+      friendly_name: "Number of Devices"
+      icon_template: mdi:home-assistant
+      unique_id: daf81d1985234973978db1a91cad97f2
+      value_template: >-
+        {{ states.device_tracker| rejectattr('state', 'eq', 'unavailable') | list | count }}
+    lights_count:
+      friendly_name: "Number of Lights"
+      icon_template: mdi:lightbulb-group
+      unique_id: 1a60baf47e3d429d854b8acbbe9e2e1d
+      value_template: >-
+        {{ states.light | rejectattr('state', 'eq', 'unavailable') | list | count }}
+    switches_count:
+      friendly_name: "Number of Switches"
+      icon_template: mdi:light-switch
+      unique_id: 4b352c71ddfe4bae99eee8a228ddd941
+      value_template: >-
+        {{ states.switch | rejectattr('state', 'eq', 'unavailable') | list | count }}
+    camera_count:
+      friendly_name: "Number of online Cameras"
+      icon_template: mdi:camera
+      unique_id: b270deb7ad7e45e9bb7ae25787a60d77
+      value_template: >-
+        {{ states.camera | rejectattr('state', 'eq', 'unavailable') | list | count }}
+    entities_count:
+      friendly_name: "Number of Entities"
+      icon_template: mdi:fridge-industrial
+      unique_id: c8e60544f26145bb892afd8d5a436a9c
+      value_template: >-
+        {{ states | rejectattr('state', 'eq', 'unavailable') | list | count}}
+    domain_count:
+      friendly_name: "Number of Domains"
+      icon_template: mdi:home-city-outline
+      unique_id: 5ae28dca8ee3447ab5d60e736bbc358a
+      value_template: >-
+        {{ states | groupby('domain') | map(attribute='0') | list | count }}
+    na_entities_count:
+      friendly_name: "Number of Unavailble Entities"
+      icon_template: mdi:fridge-industrial-alert-outline
+      unique_id: 30b871b536d447c79b14aa242a4b52d8
+      value_template: >-
+        {{ states | selectattr('state', 'eq', 'unavailable') | map(attribute='entity_id') | list | count }}
+    today_is:
+      friendly_name: "Today is"
+      value_template: "{{ ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'][now().weekday()] }}"
+    month_is:
+      friendly_name: "Month is"
+      value_template: "{{ ['January','February','March','April','May','June','July','August','September','October','November','December'][now().month-1] }}"
+    holiday:
+      friendly_name: "Holiday"
+      value_template: >-
+        {% if is_state('calendar.holidays_in_us','on') %}
+          {{ state_attr("calendar.holidays_in_us","message") }}
+        {% elif is_state('calendar.national_holidays','on') %}
+          {{ state_attr("calendar.national_holidays","message") }}
+        {% else %}
+          none
+        {% endif %}

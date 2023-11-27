@@ -1,0 +1,60 @@
+###############################################################################
+#   @author         :  Rodney Smith
+#   @date           :  11/06/2022
+#   @homeassistant  :  integration
+#   @description    :  Sets up Waze
+#                  https://www.home-assistant.io/integrations/waze_travel_time/
+###############################################################################
+
+binary_sensor:
+- platform: template
+  sensors:
+    person_rodney_url:
+      value_template: "{{ state_attr('person.rodney', 'latitude') and state_attr('person.rodney', 'longitude') }}"
+      attribute_templates:
+        url: >
+          {% set lat = state_attr('person.rodney','latitude') %}
+          {% set lon = state_attr('person.rodney','longitude') %}
+          {% set zoom = 10 %}
+          https://embed.waze.com/en/iframe?zoom={{ zoom }}&lat={{ lat }}&lon={{ lon }}&pin=1&desc=1
+    rodney_destination_url:
+      value_template: "{{ state_attr('person.rodney', 'latitude') and state_attr('person.rodney', 'longitude') }}"
+      attribute_templates:
+        url: >
+          {% set lat = state_attr('person.rodney','latitude') %}
+          {% set lon = state_attr('person.rodney','longitude') %}
+          {% set zoom = 10 %}
+          https://www.waze.com/ul?z={{ zoom }}&navigate=yes&from={{ lat }}%2C{{ lon }}&to={{ state('sensor.destination_address') }}
+    person_gina_url:
+      value_template: "{{ state_attr('person.gina', 'latitude') and state_attr('person.gina', 'longitude') }}"
+      attribute_templates:
+        url: >
+          {% set lat = state_attr('person.gina', 'latitude') %}
+          {% set lon = state_attr('person.gina', 'longitude') %}
+          {% set zoom = 10 %}
+          https://embed.waze.com/en/iframe?zoom={{ zoom }}&lat={{ lat }}&lon={{ lon }}&pin=1&desc=1
+#          https://www.waze.com/ul?z={{ zoom }}&navigate=yes&from={{ lat }}%2C{{ lon }}&to={{ dlat }}%2C{{ dlon }}
+
+template:
+  - sensor:
+    - name: "Destination Address"
+      state: >-
+        {%- if is_state("input_select.destination", "Barber")  -%}
+          zone.danno_s_barber_shop
+        {%- elif is_state("input_select.destination", "Bel-Air")  -%}
+          zone.bel_air
+        {%- elif is_state("input_select.destination", "Reannon")  -%}
+          zone.reannon_s_place
+        {%- elif is_state("input_select.destination", "Spencer")  -%}
+          zone.spencer_catelynn_s
+        {%- elif is_state("input_select.destination", "Tori")  -%}
+          zone.tori_s_place
+        {%- elif is_state("input_select.destination", "Lydia")  -%}
+          zone.lydia_kelen_s
+        {%- elif is_state("input_select.destination", "Mom")  -%}
+          zone.mom_s_house
+        {%- elif is_state("input_select.destination", "Natalie")  -%}
+          zone.natalie_eric_s
+        {%- else -%}
+          Unknown
+        {%- endif %}

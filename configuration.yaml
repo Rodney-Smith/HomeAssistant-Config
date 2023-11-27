@@ -1,0 +1,61 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+# Including Directories
+# !include_dir_list will return the content of a directory as a list with each file content being an entry in the list. The list entries are ordered based on the alphanumeric ordering of the names of the files.
+# !include_dir_named will return the content of a directory as a dictionary which maps filename => content of file.
+# !include_dir_merge_list will return the content of a directory as a list by merging all files (which should contain a list) into 1 big list.
+# !include_dir_merge_named will return the content of a directory as a dictionary by loading each file and merging it into 1 big dictionary.
+
+# Loads default set of integrations. Do not remove.
+#default_config:
+
+# Load frontend themes from the themes folder
+#frontend:
+#  themes: !include_dir_merge_named themes
+
+#automation: !include automations.yaml
+#script: !include scripts.yaml
+#scene: !include scenes.yaml
+
+homeassistant:
+  packages: !include_dir_named packages
+
+intent:
+
+intent_script:
+  HassGetTemperature:
+    speech:
+      text: >-
+        {% set sensor =  "sensor." + name %}
+        The temperature is currently {{ states(sensor) | int }} degrees
+
+light: !include_dir_merge_list entities/lights
+
+### Logging ###
+history: !include logging/history.yaml
+logbook: !include logging/logbook.yaml
+logger: !include logging/logger.yaml
+recorder: !include logging/recorder.yaml
+
+media_player: !include entities/media_players.yaml
+
+proximity:
+  home:
+    devices:
+      - device_tracker.einstein_iphone
+      - device_tracker.gina_iphone
+    tolerance: 10
+    unit_of_measurement: 'mi'
+  work:
+    devices:
+      - device_tracker.einstein_iphone
+      - device_tracker.work_phone
+    tolerance: 10
+    unit_of_measurement: 'mi'
+
+sensor: !include_dir_merge_list entities/sensors
+
+switch: !include_dir_list entities/switches
+
+# Text to speech
+tts:
+  - platform: google_translate

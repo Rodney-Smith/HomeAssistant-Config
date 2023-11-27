@@ -1,0 +1,12 @@
+###############################################################################
+#  @author         :  Rodney Smith
+#  @date           :  06/23/2022
+#  @package        :  script.rodney_eta_report
+#  @description    :  A Collection of Notification Scripts and Configs.
+###############################################################################
+rodney_eta_report:
+  alias: Rodney's ETA
+  sequence:
+    - service: script.speech_engine
+      data:
+        call_rodney_location: 1

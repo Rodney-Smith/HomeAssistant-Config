@@ -1,0 +1,2414 @@
+- id: '1632365883297'
+  name: Blue Lives Matter
+  entities:
+    light.front_porch_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Front Porch 2
+      supported_features: 4
+      color_mode: hs
+      brightness: 255
+      hs_color:
+      - 225
+      - 100
+      rgb_color:
+      - 0
+      - 63
+      - 255
+      xy_color:
+      - 0.137
+      - 0.065
+      effect: '0'
+      state: 'on'
+    light.front_porch_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Front Porch 1
+      supported_features: 4
+      color_mode: hs
+      brightness: 255
+      hs_color:
+      - 225
+      - 100
+      rgb_color:
+      - 0
+      - 63
+      - 255
+      xy_color:
+      - 0.137
+      - 0.065
+      effect: '0'
+      state: 'on'
+    light.entrance:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Entrance
+      supported_features: 4
+      color_mode: hs
+      brightness: 255
+      hs_color:
+      - 225
+      - 100
+      rgb_color:
+      - 0
+      - 63
+      - 255
+      xy_color:
+      - 0.137
+      - 0.065
+      effect: '0'
+      state: 'on'
+  icon: mdi:car-emergency
+- id: '1632366515585'
+  name: Support the Troops
+  entities:
+    light.front_porch_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Front Porch 1
+      supported_features: 4
+      color_mode: hs
+      brightness: 255
+      hs_color:
+      - 120
+      - 100
+      rgb_color:
+      - 0
+      - 255
+      - 0
+      xy_color:
+      - 0.172
+      - 0.747
+      effect: '0'
+      state: 'on'
+    light.front_porch_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Front Porch 2
+      supported_features: 4
+      color_mode: hs
+      brightness: 255
+      hs_color:
+      - 120
+      - 100
+      rgb_color:
+      - 0
+      - 255
+      - 0
+      xy_color:
+      - 0.172
+      - 0.747
+      effect: '0'
+      state: 'on'
+    light.entrance:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Entrance
+      supported_features: 4
+      color_mode: hs
+      brightness: 255
+      hs_color:
+      - 120
+      - 100
+      rgb_color:
+      - 0
+      - 255
+      - 0
+      xy_color:
+      - 0.172
+      - 0.747
+      effect: '0'
+      state: 'on'
+    light.side_porch_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Side Porch 1
+      supported_features: 4
+      color_mode: hs
+      brightness: 255
+      hs_color:
+      - 120
+      - 100
+      rgb_color:
+      - 0
+      - 255
+      - 0
+      xy_color:
+      - 0.172
+      - 0.747
+      effect: '0'
+      state: 'on'
+    light.side_porch_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Side Porch 2
+      supported_features: 4
+      color_mode: hs
+      brightness: 255
+      hs_color:
+      - 120
+      - 100
+      rgb_color:
+      - 0
+      - 255
+      - 0
+      xy_color:
+      - 0.172
+      - 0.747
+      effect: '0'
+      state: 'on'
+  icon: mdi:bugle
+- id: '1632366694367'
+  name: Red Light District
+  entities:
+    light.rodney_nightstand:
+      min_color_temp_kelvin: 2857
+      max_color_temp_kelvin: 6666
+      min_mireds: 150
+      max_mireds: 350
+      supported_color_modes:
+      - color_temp
+      - rgb
+      friendly_name: Rodney's Nightstand
+      supported_features: 40
+      color_mode: rgb
+      brightness: 102
+      hs_color:
+      - 359.294
+      - 100
+      rgb_color:
+      - 255
+      - 0
+      - 3
+      xy_color:
+      - 0.7
+      - 0.299
+      state: 'on'
+    light.gina_nightstand:
+      min_color_temp_kelvin: 2857
+      max_color_temp_kelvin: 6666
+      min_mireds: 150
+      max_mireds: 350
+      supported_color_modes:
+      - color_temp
+      - rgb
+      friendly_name: Gina's Nightstand
+      supported_features: 40
+      color_mode: rgb
+      brightness: 102
+      hs_color:
+      - 0
+      - 100
+      rgb_color:
+      - 255
+      - 0
+      - 0
+      xy_color:
+      - 0.701
+      - 0.299
+      state: 'on'
+    light.rodney_led_strip:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 9000
+      min_mireds: 111
+      max_mireds: 500
+      supported_color_modes:
+      - brightness
+      - color_temp
+      - rgb
+      http_enabled: true
+      ble_enabled: true
+      lan_enabled: false
+      update_status: ok at Wed Jun 14 11:52:02 2023
+      timeout_count: 0
+      icon: mdi:led-strip-variant
+      friendly_name: Rodney LED Strip
+      supported_features: 0
+      color_mode: rgb
+      brightness: 63
+      hs_color:
+      - 0
+      - 99.608
+      rgb_color:
+      - 255
+      - 1
+      - 1
+      xy_color:
+      - 0.7
+      - 0.299
+      state: 'on'
+    light.gina_led_strip:
+      min_color_temp_kelvin: 2000
+      max_color_temp_kelvin: 9000
+      min_mireds: 111
+      max_mireds: 500
+      supported_color_modes:
+      - brightness
+      - color_temp
+      - rgb
+      http_enabled: true
+      ble_enabled: true
+      lan_enabled: false
+      update_status: ok at Wed Jun 14 11:53:02 2023
+      timeout_count: 0
+      icon: mdi:led-strip-variant
+      friendly_name: Gina LED Strip
+      supported_features: 0
+      color_mode: rgb
+      brightness: 63
+      hs_color:
+      - 0
+      - 99.608
+      rgb_color:
+      - 255
+      - 1
+      - 1
+      xy_color:
+      - 0.7
+      - 0.299
+      state: 'on'
+  icon: mdi:emoticon-wink-outline
+  metadata: {}
+- id: '1632366694368'
+  name: Halloween
+  entities:
+    light.front_porch_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Front Porch 1
+      supported_features: 4
+      color_mode: hs
+      brightness: 255
+      hs_color:
+      - 30
+      - 100
+      rgb_color:
+      - 255
+      - 127
+      - 0
+      xy_color:
+      - 0.612
+      - 0.374
+      effect: '0'
+      state: 'on'
+    light.front_porch_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Front Porch 2
+      supported_features: 4
+      color_mode: hs
+      brightness: 255
+      hs_color:
+      - 30
+      - 100
+      rgb_color:
+      - 255
+      - 127
+      - 0
+      xy_color:
+      - 0.612
+      - 0.374
+      effect: '0'
+      state: 'on'
+    light.entrance:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Entrance
+      supported_features: 4
+      color_mode: hs
+      brightness: 255
+      hs_color:
+      - 30
+      - 100
+      rgb_color:
+      - 255
+      - 127
+      - 0
+      xy_color:
+      - 0.612
+      - 0.374
+      effect: '0'
+      state: 'on'
+  icon: mdi:halloween
+  metadata: {}
+- id: '1632366694369'
+  name: Christmas
+  entities:
+    light.front_porch_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Front Porch 1
+      supported_features: 4
+      color_mode: hs
+      brightness: 255
+      hs_color:
+      - 0
+      - 100
+      rgb_color:
+      - 255
+      - 0
+      - 0
+      xy_color:
+      - 0.701
+      - 0.299
+      effect: '0'
+      state: 'on'
+    light.front_porch_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Front Porch 2
+      supported_features: 4
+      color_mode: hs
+      brightness: 255
+      hs_color:
+      - 105
+      - 100
+      rgb_color:
+      - 63
+      - 255
+      - 0
+      xy_color:
+      - 0.199
+      - 0.724
+      effect: '0'
+      state: 'on'
+    light.entrance:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Entrance
+      supported_features: 4
+      color_mode: hs
+      brightness: 255
+      hs_color:
+      - 120
+      - 100
+      rgb_color:
+      - 0
+      - 255
+      - 0
+      xy_color:
+      - 0.172
+      - 0.747
+      effect: '0'
+      state: 'on'
+  icon: mdi:pine-tree
+  metadata: {}
+- id: '1651438465468'
+  name: Warm White
+  entities:
+    light.entrance:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Entrance
+      supported_features: 4
+      color_mode: color_temp
+      brightness: 255
+      hs_color:
+      - 30.601
+      - 94.547
+      rgb_color:
+      - 255
+      - 136
+      - 13
+      xy_color:
+      - 0.599
+      - 0.382
+      effect: '0'
+      color_temp: 500
+      state: 'on'
+    light.front_porch_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Front Porch 1
+      supported_features: 4
+      color_mode: color_temp
+      brightness: 255
+      color_temp: 500
+      hs_color:
+      - 30.601
+      - 94.547
+      rgb_color:
+      - 255
+      - 136
+      - 13
+      xy_color:
+      - 0.599
+      - 0.382
+      effect: '0'
+      state: 'on'
+    light.front_porch_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Front Porch 2
+      supported_features: 4
+      color_mode: color_temp
+      brightness: 255
+      hs_color:
+      - 30.601
+      - 94.547
+      rgb_color:
+      - 255
+      - 136
+      - 13
+      xy_color:
+      - 0.599
+      - 0.382
+      effect: '0'
+      color_temp: 500
+      state: 'on'
+    light.side_porch_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Side Porch 1
+      supported_features: 4
+      color_mode: color_temp
+      brightness: 255
+      hs_color:
+      - 30.601
+      - 94.547
+      rgb_color:
+      - 255
+      - 136
+      - 13
+      xy_color:
+      - 0.599
+      - 0.382
+      effect: '0'
+      color_temp: 500
+      state: 'on'
+    light.side_porch_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Side Porch 2
+      supported_features: 4
+      color_mode: color_temp
+      brightness: 255
+      hs_color:
+      - 30.601
+      - 94.547
+      rgb_color:
+      - 255
+      - 136
+      - 13
+      xy_color:
+      - 0.599
+      - 0.382
+      effect: '0'
+      color_temp: 500
+      state: 'on'
+  icon: mdi:lightbulb-group-outline
+- id: '1651438847129'
+  name: Cool White
+  entities:
+    light.entrance:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Entrance
+      supported_features: 4
+      color_mode: color_temp
+      brightness: 255
+      hs_color:
+      - 54.768
+      - 1.6
+      rgb_color:
+      - 255
+      - 254
+      - 250
+      xy_color:
+      - 0.326
+      - 0.333
+      effect: '0'
+      color_temp: 153
+      state: 'on'
+    light.front_porch_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Front Porch 1
+      supported_features: 4
+      color_mode: color_temp
+      brightness: 255
+      hs_color:
+      - 54.768
+      - 1.6
+      rgb_color:
+      - 255
+      - 254
+      - 250
+      xy_color:
+      - 0.326
+      - 0.333
+      effect: '0'
+      color_temp: 153
+      state: 'on'
+    light.front_porch_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Front Porch 2
+      supported_features: 4
+      color_mode: color_temp
+      brightness: 255
+      hs_color:
+      - 54.768
+      - 1.6
+      rgb_color:
+      - 255
+      - 254
+      - 250
+      xy_color:
+      - 0.326
+      - 0.333
+      effect: '0'
+      color_temp: 153
+      state: 'on'
+    light.side_porch_1:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Side Porch 1
+      supported_features: 4
+      color_mode: color_temp
+      brightness: 255
+      color_temp: 153
+      hs_color:
+      - 54.768
+      - 1.6
+      rgb_color:
+      - 255
+      - 254
+      - 250
+      xy_color:
+      - 0.326
+      - 0.333
+      effect: '0'
+      state: 'on'
+    light.side_porch_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - '0'
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      supported_color_modes:
+      - color_temp
+      - hs
+      friendly_name: Side Porch 2
+      supported_features: 4
+      color_mode: color_temp
+      brightness: 255
+      color_temp: 153
+      hs_color:
+      - 54.768
+      - 1.6
+      rgb_color:
+      - 255
+      - 254
+      - 250
+      xy_color:
+      - 0.326
+      - 0.333
+      effect: '0'
+      state: 'on'
+  icon: mdi:lightbulb-group-outline
+- id: '1685213337606'
+  name: Movie Lighting
+  entities:
+    light.rodney_light:
+      min_color_temp_kelvin: 2857
+      max_color_temp_kelvin: 6666
+      min_mireds: 150
+      max_mireds: 350
+      supported_color_modes:
+      - color_temp
+      - rgb
+      friendly_name: Rodney's Light
+      supported_features: 40
+      color_mode: color_temp
+      brightness: 102
+      color_temp_kelvin: 6666
+      color_temp: 150
+      hs_color:
+      - 300
+      - 2.084
+      rgb_color:
+      - 255
+      - 249
+      - 255
+      xy_color:
+      - 0.325
+      - 0.322
+      state: 'on'
+    light.gina_light:
+      min_color_temp_kelvin: 2857
+      max_color_temp_kelvin: 6666
+      min_mireds: 150
+      max_mireds: 350
+      supported_color_modes:
+      - color_temp
+      - rgb
+      friendly_name: Gina's Light
+      supported_features: 40
+      color_mode: color_temp
+      brightness: 102
+      color_temp_kelvin: 6666
+      color_temp: 150
+      hs_color:
+      - 300
+      - 2.084
+      rgb_color:
+      - 255
+      - 249
+      - 255
+      xy_color:
+      - 0.325
+      - 0.322
+      state: 'on'
+  icon: mdi:movie-cog-outline
+  metadata: {}
+- id: '1685242885746'
+  name: Living Room - Cool White
+  entities:
+    light.rodney_light:
+      min_color_temp_kelvin: 2857
+      max_color_temp_kelvin: 6666
+      min_mireds: 150
+      max_mireds: 350
+      supported_color_modes:
+      - color_temp
+      - rgb
+      friendly_name: Rodney's Light
+      supported_features: 40
+      color_mode: color_temp
+      brightness: 178
+      color_temp_kelvin: 6666
+      color_temp: 150
+      hs_color:
+      - 300
+      - 2.084
+      rgb_color:
+      - 255
+      - 249
+      - 255
+      xy_color:
+      - 0.325
+      - 0.322
+      state: 'on'
+    light.gina_light:
+      min_color_temp_kelvin: 2857
+      max_color_temp_kelvin: 6666
+      min_mireds: 150
+      max_mireds: 350
+      supported_color_modes:
+      - color_temp
+      - rgb
+      friendly_name: Gina's Light
+      supported_features: 40
+      color_mode: color_temp
+      brightness: 178
+      color_temp_kelvin: 6666
+      color_temp: 150
+      hs_color:
+      - 300
+      - 2.084
+      rgb_color:
+      - 255
+      - 249
+      - 255
+      xy_color:
+      - 0.325
+      - 0.322
+      state: 'on'
+  icon: mdi:autorenew
+  metadata: {}
+- id: '1685246378071'
+  name: Main Bedroom - Cool White
+  entities:
+    light.rodney_nightstand:
+      min_color_temp_kelvin: 2857
+      max_color_temp_kelvin: 6666
+      min_mireds: 150
+      max_mireds: 350
+      supported_color_modes:
+      - color_temp
+      - rgb
+      friendly_name: Rodney's Nightstand
+      supported_features: 40
+      color_mode: color_temp
+      brightness: 128
+      color_temp_kelvin: 6666
+      color_temp: 150
+      hs_color:
+      - 300
+      - 2.084
+      rgb_color:
+      - 255
+      - 249
+      - 255
+      xy_color:
+      - 0.325
+      - 0.322
+      state: 'on'
+    light.gina_nightstand:
+      min_color_temp_kelvin: 2857
+      max_color_temp_kelvin: 6666
+      min_mireds: 150
+      max_mireds: 350
+      supported_color_modes:
+      - color_temp
+      - rgb
+      friendly_name: Gina's Nightstand
+      supported_features: 40
+      color_mode: color_temp
+      brightness: 128
+      color_temp_kelvin: 6666
+      color_temp: 150
+      hs_color:
+      - 300
+      - 2.084
+      rgb_color:
+      - 255
+      - 249
+      - 255
+      xy_color:
+      - 0.325
+      - 0.322
+      state: 'on'
+  icon: mdi:autorenew
+  metadata: {}
+- id: '1685761550729'
+  name: Watch Movie
+  entities:
+    light.gina_light:
+      min_color_temp_kelvin: 2857
+      max_color_temp_kelvin: 6666
+      min_mireds: 150
+      max_mireds: 350
+      supported_color_modes:
+      - color_temp
+      - rgb
+      friendly_name: Gina's Light
+      supported_features: 40
+      color_mode: color_temp
+      brightness: 89
+      color_temp_kelvin: 6666
+      color_temp: 150
+      hs_color:
+      - 300
+      - 2.084
+      rgb_color:
+      - 255
+      - 249
+      - 255
+      xy_color:
+      - 0.325
+      - 0.322
+      state: 'on'
+    light.rodney_light:
+      min_color_temp_kelvin: 2857
+      max_color_temp_kelvin: 6666
+      min_mireds: 150
+      max_mireds: 350
+      supported_color_modes:
+      - color_temp
+      - rgb
+      friendly_name: Rodney's Light
+      supported_features: 40
+      color_mode: color_temp
+      brightness: 89
+      color_temp_kelvin: 6666
+      color_temp: 150
+      hs_color:
+      - 300
+      - 2.084
+      rgb_color:
+      - 255
+      - 249
+      - 255
+      xy_color:
+      - 0.325
+      - 0.322
+      state: 'on'
+    media_player.65_tcl_roku_tv:
+      source_list:
+      - Home
+      - A&E
+      - Apple TV
+      - Crackle
+      - Discovery GO
+      - Disney Plus
+      - Dolby Access
+      - ESPN
+      - Freevee
+      - Hulu
+      - Jellyfin
+      - Lifetime
+      - Max
+      - Mirror Screen to Roku
+      - NBC
+      - Netflix
+      - NewsON
+      - Nowhere USB
+      - Paramount Network
+      - Peacock TV
+      - Philo
+      - Plex - Free Movies & TV
+      - Pluto TV - It's Free TV
+      - Prime Video
+      - Roku Media Player
+      - Roku TV Intro
+      - Roku Tips & Tricks
+      - STARZ
+      - Showtime Anytime
+      - Soundbar
+      - Streaming box
+      - Sundance Now
+      - TCL Audio
+      - The Roku Channel
+      - Tubi - Free Movies & TV
+      - USA Network
+      - Vevo
+      - Vudu
+      - Vudu Movie & TV Store
+      - YouTube
+      - YouTube TV
+      device_class: tv
+      supported_features: 151481
+      media_content_type: app
+      app_id: tvinput.hdmi2
+      app_name: Streaming box
+      source: Streaming box
+      entity_picture: /api/media_player_proxy/media_player.65_tcl_roku_tv?token=7e715799be16f5c6b63286a2f1289eff2c75d64ccc9f195250ed337e296a06c8&cache=d84d881710abe586
+      friendly_name: 65" TCL Roku TV
+      state: 'on'
+    remote.65_tcl_roku_tv:
+      supported_features: 0
+      friendly_name: 65" TCL Roku TV
+      state: 'on'
+    select.65_tcl_roku_tv_application:
+      options:
+      - Home
+      - A&E
+      - Apple TV
+      - Crackle
+      - Discovery GO
+      - Disney Plus
+      - Dolby Access
+      - ESPN
+      - Freevee
+      - Hulu
+      - Jellyfin
+      - Lifetime
+      - Max
+      - Mirror Screen to Roku
+      - NBC
+      - Netflix
+      - NewsON
+      - Nowhere USB
+      - Paramount Network
+      - Peacock TV
+      - Philo
+      - Plex - Free Movies & TV
+      - Pluto TV - It's Free TV
+      - Prime Video
+      - Roku Media Player
+      - Roku TV Intro
+      - Roku Tips & Tricks
+      - STARZ
+      - Showtime Anytime
+      - Soundbar
+      - Streaming box
+      - Sundance Now
+      - TCL Audio
+      - The Roku Channel
+      - Tubi - Free Movies & TV
+      - USA Network
+      - Vevo
+      - Vudu
+      - Vudu Movie & TV Store
+      - YouTube
+      - YouTube TV
+      icon: mdi:application
+      friendly_name: 65" TCL Roku TV Application
+      state: Streaming box
+    media_player.fire_tv_cube:
+      source_list:
+      - Local Speaker
+      - Einstein’s iPhone
+      volume_level: 0.3
+      is_volume_muted: false
+      media_content_type: standby
+      media_position_updated_at: '2023-06-03T01:29:54.745288+00:00'
+      source: Local Speaker
+      available: true
+      last_called: false
+      last_called_timestamp:
+      last_called_summary:
+      connected_bluetooth:
+      bluetooth_list:
+      - Einstein’s iPhone
+      friendly_name: Fire TV Cube
+      supported_features: 56253
+      state: standby
+  icon: mdi:movie-open
+  metadata: {}
+- id: '1685763311759'
+  name: End Movie
+  entities:
+    light.gina_light:
+      min_color_temp_kelvin: 2857
+      max_color_temp_kelvin: 6666
+      min_mireds: 150
+      max_mireds: 350
+      supported_color_modes:
+      - color_temp
+      - rgb
+      friendly_name: Gina's Light
+      supported_features: 40
+      state: 'off'
+    light.rodney_light:
+      min_color_temp_kelvin: 2857
+      max_color_temp_kelvin: 6666
+      min_mireds: 150
+      max_mireds: 350
+      supported_color_modes:
+      - color_temp
+      - rgb
+      friendly_name: Rodney's Light
+      supported_features: 40
+      state: 'off'
+    media_player.65_tcl_roku_tv:
+      source_list:
+      - Home
+      - A&E
+      - Apple TV
+      - Crackle
+      - Discovery GO
+      - Disney Plus
+      - Dolby Access
+      - ESPN
+      - Freevee
+      - Hulu
+      - Jellyfin
+      - Lifetime
+      - Max
+      - Mirror Screen to Roku
+      - NBC
+      - Netflix
+      - NewsON
+      - Nowhere USB
+      - Paramount Network
+      - Peacock TV
+      - Philo
+      - Plex - Free Movies & TV
+      - Pluto TV - It's Free TV
+      - Prime Video
+      - Roku Media Player
+      - Roku TV Intro
+      - Roku Tips & Tricks
+      - STARZ
+      - Showtime Anytime
+      - Soundbar
+      - Streaming box
+      - Sundance Now
+      - TCL Audio
+      - The Roku Channel
+      - Tubi - Free Movies & TV
+      - USA Network
+      - Vevo
+      - Vudu
+      - Vudu Movie & TV Store
+      - YouTube
+      - YouTube TV
+      device_class: tv
+      supported_features: 151481
+      friendly_name: 65" TCL Roku TV
+      media_content_type: app
+      app_id: tvinput.hdmi2
+      app_name: Streaming box
+      source: Streaming box
+      entity_picture: /api/media_player_proxy/media_player.65_tcl_roku_tv?token=7e715799be16f5c6b63286a2f1289eff2c75d64ccc9f195250ed337e296a06c8&cache=d84d881710abe586
+      state: 'off'
+    remote.65_tcl_roku_tv:
+      supported_features: 0
+      friendly_name: 65" TCL Roku TV
+      state: 'off'
+    select.65_tcl_roku_tv_application:
+      options:
+      - Home
+      - A&E
+      - Apple TV
+      - Crackle
+      - Discovery GO
+      - Disney Plus
+      - Dolby Access
+      - ESPN
+      - Freevee
+      - Hulu
+      - Jellyfin
+      - Lifetime
+      - Max
+      - Mirror Screen to Roku
+      - NBC
+      - Netflix
+      - NewsON
+      - Nowhere USB
+      - Paramount Network
+      - Peacock TV
+      - Philo
+      - Plex - Free Movies & TV
+      - Pluto TV - It's Free TV
+      - Prime Video
+      - Roku Media Player
+      - Roku TV Intro
+      - Roku Tips & Tricks
+      - STARZ
+      - Showtime Anytime
+      - Soundbar
+      - Streaming box
+      - Sundance Now
+      - TCL Audio
+      - The Roku Channel
+      - Tubi - Free Movies & TV
+      - USA Network
+      - Vevo
+      - Vudu
+      - Vudu Movie & TV Store
+      - YouTube
+      - YouTube TV
+      icon: mdi:application
+      friendly_name: 65" TCL Roku TV Application
+      state: Streaming box
+    media_player.fire_tv_cube:
+      source_list:
+      - Local Speaker
+      - Einstein’s iPhone
+      volume_level: 0.3
+      is_volume_muted: false
+      media_content_type: standby
+      media_position_updated_at: '2023-06-03T01:29:54.745288+00:00'
+      source: Local Speaker
+      available: true
+      last_called: false
+      last_called_timestamp:
+      last_called_summary:
+      connected_bluetooth:
+      bluetooth_list:
+      - Einstein’s iPhone
+      friendly_name: Fire TV Cube
+      supported_features: 56253
+      state: standby
+  icon: mdi:movie
+  metadata: {}
+- id: '1685980661899'
+  name: Watch YouTube TV
+  entities:
+    media_player.65_tcl_roku_tv:
+      source_list:
+      - Home
+      - A&E
+      - Apple TV
+      - Crackle
+      - Discovery GO
+      - Disney Plus
+      - Dolby Access
+      - ESPN
+      - Freevee
+      - Hulu
+      - Jellyfin
+      - Lifetime
+      - Max
+      - Mirror Screen to Roku
+      - NBC
+      - Netflix
+      - NewsON
+      - Nowhere USB
+      - Paramount Network
+      - Peacock TV
+      - Philo
+      - Plex - Free Movies & TV
+      - Pluto TV - It's Free TV
+      - Prime Video
+      - Roku Media Player
+      - Roku TV Intro
+      - Roku Tips & Tricks
+      - STARZ
+      - Showtime Anytime
+      - Soundbar
+      - Streaming box
+      - Sundance Now
+      - TCL Audio
+      - The Roku Channel
+      - Tubi - Free Movies & TV
+      - USA Network
+      - Vevo
+      - Vudu
+      - Vudu Movie & TV Store
+      - YouTube
+      - YouTube TV
+      media_content_type: app
+      app_id: '195316'
+      app_name: YouTube TV
+      source: YouTube TV
+      device_class: tv
+      entity_picture: /api/media_player_proxy/media_player.65_tcl_roku_tv?token=1e8e9d9233c22b55509a0e18f6f82eae7b272b77360eb875e2ebac5eb3cee815&cache=32ca89fd0e0fb76a
+      friendly_name: 65" TCL Roku TV
+      supported_features: 151481
+      state: playing
+    remote.65_tcl_roku_tv:
+      friendly_name: 65" TCL Roku TV
+      supported_features: 0
+      state: 'on'
+    select.65_tcl_roku_tv_application:
+      options:
+      - Home
+      - A&E
+      - Apple TV
+      - Crackle
+      - Discovery GO
+      - Disney Plus
+      - Dolby Access
+      - ESPN
+      - Freevee
+      - Hulu
+      - Jellyfin
+      - Lifetime
+      - Max
+      - Mirror Screen to Roku
+      - NBC
+      - Netflix
+      - NewsON
+      - Nowhere USB
+      - Paramount Network
+      - Peacock TV
+      - Philo
+      - Plex - Free Movies & TV
+      - Pluto TV - It's Free TV
+      - Prime Video
+      - Roku Media Player
+      - Roku TV Intro
+      - Roku Tips & Tricks
+      - STARZ
+      - Showtime Anytime
+      - Soundbar
+      - Streaming box
+      - Sundance Now
+      - TCL Audio
+      - The Roku Channel
+      - Tubi - Free Movies & TV
+      - USA Network
+      - Vevo
+      - Vudu
+      - Vudu Movie & TV Store
+      - YouTube
+      - YouTube TV
+      icon: mdi:application
+      friendly_name: 65" TCL Roku TV Application
+      state: YouTube TV
+  icon: mdi:movie-open
+  metadata: {}
+- id: '1685983342651'
+  name: Watch Netflix
+  entities:
+    media_player.65_tcl_roku_tv:
+      source_list:
+      - Home
+      - A&E
+      - Apple TV
+      - Crackle
+      - Discovery GO
+      - Disney Plus
+      - Dolby Access
+      - ESPN
+      - Freevee
+      - Hulu
+      - Jellyfin
+      - Lifetime
+      - Max
+      - Mirror Screen to Roku
+      - NBC
+      - Netflix
+      - NewsON
+      - Nowhere USB
+      - Paramount Network
+      - Peacock TV
+      - Philo
+      - Plex - Free Movies & TV
+      - Pluto TV - It's Free TV
+      - Prime Video
+      - Roku Media Player
+      - Roku TV Intro
+      - Roku Tips & Tricks
+      - STARZ
+      - Showtime Anytime
+      - Soundbar
+      - Streaming box
+      - Sundance Now
+      - TCL Audio
+      - The Roku Channel
+      - Tubi - Free Movies & TV
+      - USA Network
+      - Vevo
+      - Vudu
+      - Vudu Movie & TV Store
+      - YouTube
+      - YouTube TV
+      media_content_type: app
+      app_id: '12'
+      app_name: Netflix
+      source: Netflix
+      device_class: tv
+      entity_picture: /api/media_player_proxy/media_player.65_tcl_roku_tv?token=1e8e9d9233c22b55509a0e18f6f82eae7b272b77360eb875e2ebac5eb3cee815&cache=a5e90ed8e3f6558f
+      friendly_name: 65" TCL Roku TV
+      supported_features: 151481
+      state: playing
+    remote.65_tcl_roku_tv:
+      friendly_name: 65" TCL Roku TV
+      supported_features: 0
+      state: 'on'
+    select.65_tcl_roku_tv_application:
+      options:
+      - Home
+      - A&E
+      - Apple TV
+      - Crackle
+      - Discovery GO
+      - Disney Plus
+      - Dolby Access
+      - ESPN
+      - Freevee
+      - Hulu
+      - Jellyfin
+      - Lifetime
+      - Max
+      - Mirror Screen to Roku
+      - NBC
+      - Netflix
+      - NewsON
+      - Nowhere USB
+      - Paramount Network
+      - Peacock TV
+      - Philo
+      - Plex - Free Movies & TV
+      - Pluto TV - It's Free TV
+      - Prime Video
+      - Roku Media Player
+      - Roku TV Intro
+      - Roku Tips & Tricks
+      - STARZ
+      - Showtime Anytime
+      - Soundbar
+      - Streaming box
+      - Sundance Now
+      - TCL Audio
+      - The Roku Channel
+      - Tubi - Free Movies & TV
+      - USA Network
+      - Vevo
+      - Vudu
+      - Vudu Movie & TV Store
+      - YouTube
+      - YouTube TV
+      icon: mdi:application
+      friendly_name: 65" TCL Roku TV Application
+      state: Netflix
+  icon: mdi:movie-open
+  metadata: {}
+- id: '1685983461514'
+  name: Watch Hulu
+  entities:
+    media_player.65_tcl_roku_tv:
+      source_list:
+      - Home
+      - A&E
+      - Apple TV
+      - Crackle
+      - Discovery GO
+      - Disney Plus
+      - Dolby Access
+      - ESPN
+      - Freevee
+      - Hulu
+      - Jellyfin
+      - Lifetime
+      - Max
+      - Mirror Screen to Roku
+      - NBC
+      - Netflix
+      - NewsON
+      - Nowhere USB
+      - Paramount Network
+      - Peacock TV
+      - Philo
+      - Plex - Free Movies & TV
+      - Pluto TV - It's Free TV
+      - Prime Video
+      - Roku Media Player
+      - Roku TV Intro
+      - Roku Tips & Tricks
+      - STARZ
+      - Showtime Anytime
+      - Soundbar
+      - Streaming box
+      - Sundance Now
+      - TCL Audio
+      - The Roku Channel
+      - Tubi - Free Movies & TV
+      - USA Network
+      - Vevo
+      - Vudu
+      - Vudu Movie & TV Store
+      - YouTube
+      - YouTube TV
+      media_content_type: app
+      app_id: '2285'
+      app_name: Hulu
+      source: Hulu
+      device_class: tv
+      entity_picture: /api/media_player_proxy/media_player.65_tcl_roku_tv?token=1e8e9d9233c22b55509a0e18f6f82eae7b272b77360eb875e2ebac5eb3cee815&cache=a5e90ed8e3f6558f
+      friendly_name: 65" TCL Roku TV
+      supported_features: 151481
+      state: playing
+    remote.65_tcl_roku_tv:
+      friendly_name: 65" TCL Roku TV
+      supported_features: 0
+      state: 'on'
+    select.65_tcl_roku_tv_application:
+      options:
+      - Home
+      - A&E
+      - Apple TV
+      - Crackle
+      - Discovery GO
+      - Disney Plus
+      - Dolby Access
+      - ESPN
+      - Freevee
+      - Hulu
+      - Jellyfin
+      - Lifetime
+      - Max
+      - Mirror Screen to Roku
+      - NBC
+      - Netflix
+      - NewsON
+      - Nowhere USB
+      - Paramount Network
+      - Peacock TV
+      - Philo
+      - Plex - Free Movies & TV
+      - Pluto TV - It's Free TV
+      - Prime Video
+      - Roku Media Player
+      - Roku TV Intro
+      - Roku Tips & Tricks
+      - STARZ
+      - Showtime Anytime
+      - Soundbar
+      - Streaming box
+      - Sundance Now
+      - TCL Audio
+      - The Roku Channel
+      - Tubi - Free Movies & TV
+      - USA Network
+      - Vevo
+      - Vudu
+      - Vudu Movie & TV Store
+      - YouTube
+      - YouTube TV
+      icon: mdi:application
+      friendly_name: 65" TCL Roku TV Application
+      state: Hulu
+  icon: mdi:movie-open
+  metadata: {}
+- id: '1685983518162'
+  name: Watch Disney
+  entities:
+    media_player.65_tcl_roku_tv:
+      source_list:
+      - Home
+      - A&E
+      - Apple TV
+      - Crackle
+      - Discovery GO
+      - Disney Plus
+      - Dolby Access
+      - ESPN
+      - Freevee
+      - Hulu
+      - Jellyfin
+      - Lifetime
+      - Max
+      - Mirror Screen to Roku
+      - NBC
+      - Netflix
+      - NewsON
+      - Nowhere USB
+      - Paramount Network
+      - Peacock TV
+      - Philo
+      - Plex - Free Movies & TV
+      - Pluto TV - It's Free TV
+      - Prime Video
+      - Roku Media Player
+      - Roku TV Intro
+      - Roku Tips & Tricks
+      - STARZ
+      - Showtime Anytime
+      - Soundbar
+      - Streaming box
+      - Sundance Now
+      - TCL Audio
+      - The Roku Channel
+      - Tubi - Free Movies & TV
+      - USA Network
+      - Vevo
+      - Vudu
+      - Vudu Movie & TV Store
+      - YouTube
+      - YouTube TV
+      media_content_type: app
+      app_id: '291097'
+      app_name: Disney Plus
+      source: Disney Plus
+      device_class: tv
+      entity_picture: /api/media_player_proxy/media_player.65_tcl_roku_tv?token=1e8e9d9233c22b55509a0e18f6f82eae7b272b77360eb875e2ebac5eb3cee815&cache=a5e90ed8e3f6558f
+      friendly_name: 65" TCL Roku TV
+      supported_features: 151481
+      state: playing
+    remote.65_tcl_roku_tv:
+      friendly_name: 65" TCL Roku TV
+      supported_features: 0
+      state: 'on'
+    select.65_tcl_roku_tv_application:
+      options:
+      - Home
+      - A&E
+      - Apple TV
+      - Crackle
+      - Discovery GO
+      - Disney Plus
+      - Dolby Access
+      - ESPN
+      - Freevee
+      - Hulu
+      - Jellyfin
+      - Lifetime
+      - Max
+      - Mirror Screen to Roku
+      - NBC
+      - Netflix
+      - NewsON
+      - Nowhere USB
+      - Paramount Network
+      - Peacock TV
+      - Philo
+      - Plex - Free Movies & TV
+      - Pluto TV - It's Free TV
+      - Prime Video
+      - Roku Media Player
+      - Roku TV Intro
+      - Roku Tips & Tricks
+      - STARZ
+      - Showtime Anytime
+      - Soundbar
+      - Streaming box
+      - Sundance Now
+      - TCL Audio
+      - The Roku Channel
+      - Tubi - Free Movies & TV
+      - USA Network
+      - Vevo
+      - Vudu
+      - Vudu Movie & TV Store
+      - YouTube
+      - YouTube TV
+      icon: mdi:application
+      friendly_name: 65" TCL Roku TV Application
+      state: Disney Plus
+  icon: mdi:movie-open
+  metadata: {}
+- id: '1685983550893'
+  name: Watch Amazon Prime
+  entities:
+    media_player.65_tcl_roku_tv:
+      source_list:
+      - Home
+      - A&E
+      - Apple TV
+      - Crackle
+      - Discovery GO
+      - Disney Plus
+      - Dolby Access
+      - ESPN
+      - Freevee
+      - Hulu
+      - Jellyfin
+      - Lifetime
+      - Max
+      - Mirror Screen to Roku
+      - NBC
+      - Netflix
+      - NewsON
+      - Nowhere USB
+      - Paramount Network
+      - Peacock TV
+      - Philo
+      - Plex - Free Movies & TV
+      - Pluto TV - It's Free TV
+      - Prime Video
+      - Roku Media Player
+      - Roku TV Intro
+      - Roku Tips & Tricks
+      - STARZ
+      - Showtime Anytime
+      - Soundbar
+      - Streaming box
+      - Sundance Now
+      - TCL Audio
+      - The Roku Channel
+      - Tubi - Free Movies & TV
+      - USA Network
+      - Vevo
+      - Vudu
+      - Vudu Movie & TV Store
+      - YouTube
+      - YouTube TV
+      media_content_type: app
+      app_id: '13'
+      app_name: Prime Video
+      source: Prime Video
+      device_class: tv
+      entity_picture: /api/media_player_proxy/media_player.65_tcl_roku_tv?token=1e8e9d9233c22b55509a0e18f6f82eae7b272b77360eb875e2ebac5eb3cee815&cache=a5e90ed8e3f6558f
+      friendly_name: 65" TCL Roku TV
+      supported_features: 151481
+      state: playing
+    remote.65_tcl_roku_tv:
+      friendly_name: 65" TCL Roku TV
+      supported_features: 0
+      state: 'on'
+    select.65_tcl_roku_tv_application:
+      options:
+      - Home
+      - A&E
+      - Apple TV
+      - Crackle
+      - Discovery GO
+      - Disney Plus
+      - Dolby Access
+      - ESPN
+      - Freevee
+      - Hulu
+      - Jellyfin
+      - Lifetime
+      - Max
+      - Mirror Screen to Roku
+      - NBC
+      - Netflix
+      - NewsON
+      - Nowhere USB
+      - Paramount Network
+      - Peacock TV
+      - Philo
+      - Plex - Free Movies & TV
+      - Pluto TV - It's Free TV
+      - Prime Video
+      - Roku Media Player
+      - Roku TV Intro
+      - Roku Tips & Tricks
+      - STARZ
+      - Showtime Anytime
+      - Soundbar
+      - Streaming box
+      - Sundance Now
+      - TCL Audio
+      - The Roku Channel
+      - Tubi - Free Movies & TV
+      - USA Network
+      - Vevo
+      - Vudu
+      - Vudu Movie & TV Store
+      - YouTube
+      - YouTube TV
+      icon: mdi:application
+      friendly_name: 65" TCL Roku TV Application
+      state: Prime Video
+  icon: mdi:movie-open
+  metadata: {}
+- id: '1685983801001'
+  name: Watch Apple TV
+  entities:
+    media_player.65_tcl_roku_tv:
+      source_list:
+      - Home
+      - A&E
+      - Apple TV
+      - Crackle
+      - Discovery GO
+      - Disney Plus
+      - Dolby Access
+      - ESPN
+      - Freevee
+      - Hulu
+      - Jellyfin
+      - Lifetime
+      - Max
+      - Mirror Screen to Roku
+      - NBC
+      - Netflix
+      - NewsON
+      - Nowhere USB
+      - Paramount Network
+      - Peacock TV
+      - Philo
+      - Plex - Free Movies & TV
+      - Pluto TV - It's Free TV
+      - Prime Video
+      - Roku Media Player
+      - Roku TV Intro
+      - Roku Tips & Tricks
+      - STARZ
+      - Showtime Anytime
+      - Soundbar
+      - Streaming box
+      - Sundance Now
+      - TCL Audio
+      - The Roku Channel
+      - Tubi - Free Movies & TV
+      - USA Network
+      - Vevo
+      - Vudu
+      - Vudu Movie & TV Store
+      - YouTube
+      - YouTube TV
+      media_content_type: app
+      app_id: '551012'
+      app_name: Apple TV
+      source: Apple TV
+      device_class: tv
+      entity_picture: /api/media_player_proxy/media_player.65_tcl_roku_tv?token=1e8e9d9233c22b55509a0e18f6f82eae7b272b77360eb875e2ebac5eb3cee815&cache=a5e90ed8e3f6558f
+      friendly_name: 65" TCL Roku TV
+      supported_features: 151481
+      state: playing
+    remote.65_tcl_roku_tv:
+      friendly_name: 65" TCL Roku TV
+      supported_features: 0
+      state: 'on'
+    select.65_tcl_roku_tv_application:
+      options:
+      - Home
+      - A&E
+      - Apple TV
+      - Crackle
+      - Discovery GO
+      - Disney Plus
+      - Dolby Access
+      - ESPN
+      - Freevee
+      - Hulu
+      - Jellyfin
+      - Lifetime
+      - Max
+      - Mirror Screen to Roku
+      - NBC
+      - Netflix
+      - NewsON
+      - Nowhere USB
+      - Paramount Network
+      - Peacock TV
+      - Philo
+      - Plex - Free Movies & TV
+      - Pluto TV - It's Free TV
+      - Prime Video
+      - Roku Media Player
+      - Roku TV Intro
+      - Roku Tips & Tricks
+      - STARZ
+      - Showtime Anytime
+      - Soundbar
+      - Streaming box
+      - Sundance Now
+      - TCL Audio
+      - The Roku Channel
+      - Tubi - Free Movies & TV
+      - USA Network
+      - Vevo
+      - Vudu
+      - Vudu Movie & TV Store
+      - YouTube
+      - YouTube TV
+      icon: mdi:application
+      friendly_name: 65" TCL Roku TV Application
+      state: Apple TV
+  icon: mdi:movie-open
+  metadata: {}
+- id: '1686767970914'
+  name: Office Party
+  entities:
+    light.light_strip_10fe:
+      supported_color_modes:
+      - rgb
+      last_run_success:
+      icon: mdi:led-strip-variant
+      friendly_name: Light Strip 10FE
+      supported_features: 0
+      color_mode: rgb
+      brightness: 127
+      hs_color:
+      - 170.816
+      - 72.059
+      rgb_color:
+      - 38
+      - 136
+      - 121
+      xy_color:
+      - 0.175
+      - 0.383
+      state: 'on'
+    light.light_strip_831a:
+      supported_color_modes:
+      - rgb
+      last_run_success:
+      icon: mdi:led-strip-variant
+      friendly_name: Light Strip 831A
+      supported_features: 0
+      color_mode: rgb
+      brightness: 127
+      hs_color:
+      - 170.816
+      - 72.059
+      rgb_color:
+      - 38
+      - 136
+      - 121
+      xy_color:
+      - 0.175
+      - 0.383
+      state: 'on'
+    light.wled_soundreactive:
+      icon: mdi:led-strip-variant
+      friendly_name: WLED-SoundReactive
+      supported_features: 36
+      state: 'on'
+    light.left_floor_lamp:
+      http_enabled: true
+      ble_enabled: true
+      lan_enabled: true
+      friendly_name: Left Floor Lamp
+      state: 'on'
+    light.right_floor_lamp:
+      http_enabled: true
+      ble_enabled: true
+      lan_enabled: true
+      friendly_name: Right Floor Lamp
+      state: 'on'
+    light.humidor_led_strip:
+      http_enabled: true
+      ble_enabled: true
+      lan_enabled: true
+      icon: mdi:led-strip-variant
+      friendly_name: Humidor LED Strip
+      state: 'on'
+    light.office_lights:
+      supported_color_modes:
+      - onoff
+      friendly_name: Office Lights
+      state: 'on'
+  icon: mdi:party-popper
+  metadata:
+    light.wled_soundreactive:
+      entity_only: true
+    light.office_lights:
+      entity_only: true
+- id: '1686771197777'
+  name: Office Quiet
+  entities:
+    light.light_strip_10fe:
+      friendly_name: Light Strip 10FE
+      icon: mdi:led-strip-variant
+      supported_color_modes:
+      - rgb
+      color_mode: rgb
+      brightness: 127
+      hs_color:
+      - 170.816
+      - 72.059
+      rgb_color:
+      - 38
+      - 136
+      - 121
+      xy_color:
+      - 0.175
+      - 0.383
+      supported_features: 0
+      state: 'off'
+    light.light_strip_831a:
+      friendly_name: Light Strip 831A
+      icon: mdi:led-strip-variant
+      supported_color_modes:
+      - rgb
+      color_mode: rgb
+      brightness: 127
+      hs_color:
+      - 170.816
+      - 72.059
+      rgb_color:
+      - 38
+      - 136
+      - 121
+      xy_color:
+      - 0.175
+      - 0.383
+      supported_features: 0
+      state: 'off'
+    light.wled_soundreactive:
+      friendly_name: WLED-SoundReactive
+      icon: mdi:led-strip-variant
+      state: 'off'
+    light.left_floor_lamp:
+      friendly_name: Left Floor Lamp
+      http_enabled: true
+      ble_enabled: true
+      lan_enabled: true
+      timeout_count: 0
+      supported_features: 0
+      state: 'off'
+    light.right_floor_lamp:
+      friendly_name: Right Floor Lamp
+      http_enabled: true
+      ble_enabled: true
+      lan_enabled: true
+      timeout_count: 0
+      supported_features: 0
+      state: 'off'
+    light.humidor_led_strip:
+      friendly_name: Humidor LED Strip
+      icon: mdi:led-strip-variant
+      http_enabled: true
+      ble_enabled: true
+      lan_enabled: true
+      timeout_count: 0
+      supported_features: 0
+      state: 'off'
+    light.office_lights:
+      supported_color_modes:
+      - onoff
+      friendly_name: Office Lights
+      supported_features: 0
+      state: 'off'
+  icon: mdi:lightbulb-off
+  metadata:
+    light.wled_soundreactive:
+      entity_only: true
+    light.office_lights:
+      entity_only: true
+- id: '1632366694370'
+  name: 4th of July-1
+  entities:
+    light.front_porch_1:
+      min_color_temp_kelvin: 2857
+      max_color_temp_kelvin: 6666
+      min_mireds: 150
+      max_mireds: 350
+      supported_color_modes:
+      - color_temp
+      - rgb
+      friendly_name: Front Porch 1
+      supported_features: 40
+      color_mode: color_temp
+      brightness: 255
+      color_temp_kelvin: 6535
+      color_temp: 153
+      hs_color:
+      - 54.768
+      - 1.6
+      rgb_color:
+      - 255
+      - 254
+      - 250
+      xy_color:
+      - 0.326
+      - 0.333
+      state: 'on'
+    light.front_porch_2:
+      min_color_temp_kelvin: 2857
+      max_color_temp_kelvin: 6666
+      min_mireds: 150
+      max_mireds: 350
+      supported_color_modes:
+      - color_temp
+      - rgb
+      friendly_name: Front Porch 2
+      supported_features: 40
+      color_mode: rgb
+      brightness: 255
+      hs_color:
+      - 225.176
+      - 100
+      rgb_color:
+      - 0
+      - 63
+      - 255
+      xy_color:
+      - 0.137
+      - 0.065
+      state: 'on'
+    light.entrance:
+      min_color_temp_kelvin: 2857
+      max_color_temp_kelvin: 6666
+      min_mireds: 150
+      max_mireds: 350
+      supported_color_modes:
+      - color_temp
+      - rgb
+      friendly_name: Entrance
+      supported_features: 40
+      color_mode: rgb
+      brightness: 255
+      hs_color:
+      - 0
+      - 100
+      rgb_color:
+      - 255
+      - 0
+      - 0
+      xy_color:
+      - 0.701
+      - 0.299
+      state: 'on'
+  icon: mdi:firework
+  metadata: {}
+- id: '1688242623909'
+  name: 4th of July-2
+  entities:
+    light.front_porch_2:
+      min_color_temp_kelvin: 2857
+      max_color_temp_kelvin: 6666
+      min_mireds: 150
+      max_mireds: 350
+      supported_color_modes:
+      - color_temp
+      - rgb
+      friendly_name: Front Porch 2
+      supported_features: 40
+      color_mode: color_temp
+      brightness: 255
+      color_temp_kelvin: 6535
+      color_temp: 153
+      hs_color:
+      - 54.768
+      - 1.6
+      rgb_color:
+      - 255
+      - 254
+      - 250
+      xy_color:
+      - 0.326
+      - 0.333
+      state: 'on'
+    light.entrance:
+      min_color_temp_kelvin: 2857
+      max_color_temp_kelvin: 6666
+      min_mireds: 150
+      max_mireds: 350
+      supported_color_modes:
+      - color_temp
+      - rgb
+      friendly_name: Entrance
+      supported_features: 40
+      color_mode: rgb
+      brightness: 255
+      hs_color:
+      - 225.176
+      - 100
+      rgb_color:
+      - 0
+      - 63
+      - 255
+      xy_color:
+      - 0.137
+      - 0.065
+      state: 'on'
+    light.front_porch_1:
+      min_color_temp_kelvin: 2857
+      max_color_temp_kelvin: 6666
+      min_mireds: 150
+      max_mireds: 350
+      supported_color_modes:
+      - color_temp
+      - rgb
+      friendly_name: Front Porch 1
+      supported_features: 40
+      color_mode: rgb
+      brightness: 255
+      hs_color:
+      - 0
+      - 100
+      rgb_color:
+      - 255
+      - 0
+      - 0
+      xy_color:
+      - 0.701
+      - 0.299
+      state: 'on'
+  icon: mdi:firework
+  metadata: {}
+- id: '1688242642460'
+  name: 4th of July-3
+  entities:
+    light.entrance:
+      min_color_temp_kelvin: 2857
+      max_color_temp_kelvin: 6666
+      min_mireds: 150
+      max_mireds: 350
+      supported_color_modes:
+      - color_temp
+      - rgb
+      friendly_name: Entrance
+      supported_features: 40
+      color_mode: color_temp
+      brightness: 255
+      color_temp_kelvin: 6535
+      color_temp: 153
+      hs_color:
+      - 54.768
+      - 1.6
+      rgb_color:
+      - 255
+      - 254
+      - 250
+      xy_color:
+      - 0.326
+      - 0.333
+      state: 'on'
+    light.front_porch_1:
+      min_color_temp_kelvin: 2857
+      max_color_temp_kelvin: 6666
+      min_mireds: 150
+      max_mireds: 350
+      supported_color_modes:
+      - color_temp
+      - rgb
+      friendly_name: Front Porch 1
+      supported_features: 40
+      color_mode: rgb
+      brightness: 255
+      hs_color:
+      - 225.176
+      - 100
+      rgb_color:
+      - 0
+      - 63
+      - 255
+      xy_color:
+      - 0.137
+      - 0.065
+      state: 'on'
+    light.front_porch_2:
+      min_color_temp_kelvin: 2857
+      max_color_temp_kelvin: 6666
+      min_mireds: 150
+      max_mireds: 350
+      supported_color_modes:
+      - color_temp
+      - rgb
+      friendly_name: Front Porch 2
+      supported_features: 40
+      color_mode: rgb
+      brightness: 255
+      hs_color:
+      - 0
+      - 100
+      rgb_color:
+      - 255
+      - 0
+      - 0
+      xy_color:
+      - 0.701
+      - 0.299
+      state: 'on'
+  icon: mdi:firework
+  metadata: {}
+- id: '1688771731941'
+  name: LED Reset Color
+  entities:
+    light.light_strip_10fe:
+      friendly_name: Light Strip 10FE
+      icon: mdi:led-strip-variant
+      supported_color_modes:
+      - rgb
+      color_mode: rgb
+      brightness: 127
+      rgb_color:
+      - 38
+      - 136
+      - 121
+      state: 'on'
+    light.light_strip_831a:
+      friendly_name: Light Strip 831A
+      icon: mdi:led-strip-variant
+      supported_color_modes:
+      - rgb
+      color_mode: rgb
+      brightness: 127
+      rgb_color:
+      - 38
+      - 136
+      - 121
+      state: 'on'
+  icon: mdi:led-strip-variant
+  metadata:
+    light.light_strip_10fe:
+      entity_only: true
+    light.light_strip_831a:
+      entity_only: true
+- id: '1688772749709'
+  name: Office - Cool White
+  entities:
+    light.light_strip_10fe:
+      friendly_name: Light Strip 10FE
+      icon: mdi:led-strip-variant
+      supported_color_modes:
+      - rgb
+      color_mode: rgb
+      brightness: 127
+      hs_color:
+      - 48
+      - 1.961
+      rgb_color:
+      - 255
+      - 254
+      - 250
+      xy_color:
+      - 0.326
+      - 0.333
+      last_run_success:
+      supported_features: 0
+      state: 'on'
+    light.light_strip_831a:
+      friendly_name: Light Strip 831A
+      icon: mdi:led-strip-variant
+      supported_color_modes:
+      - rgb
+      last_run_success:
+      supported_features: 0
+      color_mode: rgb
+      brightness: 127
+      hs_color:
+      - 48
+      - 1.961
+      rgb_color:
+      - 255
+      - 254
+      - 250
+      xy_color:
+      - 0.326
+      - 0.333
+      state: 'on'
