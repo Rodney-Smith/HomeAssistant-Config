@@ -55,6 +55,10 @@ template:
           zone.mom_s_house
         {%- elif is_state("input_select.destination", "Natalie")  -%}
           zone.natalie_eric_s
+        {%- elif is_state("input_select.destination", "Work")  -%}
+          zone.work
+        {%- elif is_state("input_select.destination", "Home")  -%}
+          zone.home
         {%- else -%}
           Unknown
         {%- endif %}

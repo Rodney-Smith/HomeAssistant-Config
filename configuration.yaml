@@ -8,46 +8,26 @@
 # Loads default set of integrations. Do not remove.
 #default_config:
 
-# Load frontend themes from the themes folder
-#frontend:
-#  themes: !include_dir_merge_named themes
-
-#automation: !include automations.yaml
-#script: !include scripts.yaml
-#scene: !include scenes.yaml
-
 homeassistant:
   packages: !include_dir_named packages
 
-intent:
-
-intent_script:
-  HassGetTemperature:
-    speech:
-      text: >-
-        {% set sensor =  "sensor." + name %}
-        The temperature is currently {{ states(sensor) | int }} degrees
-
 light: !include_dir_merge_list entities/lights
-
-### Logging ###
-history: !include logging/history.yaml
-logbook: !include logging/logbook.yaml
-logger: !include logging/logger.yaml
-recorder: !include logging/recorder.yaml
 
 media_player: !include entities/media_players.yaml
 
 proximity:
   home:
     devices:
-      - device_tracker.einstein_iphone
+      - device_tracker.rodney_iphone
+      - device_tracker.rodney_iphone_icloud
       - device_tracker.gina_iphone
+      - device_tracker.gina_iphone_icloud
     tolerance: 10
     unit_of_measurement: 'mi'
   work:
     devices:
-      - device_tracker.einstein_iphone
+      - device_tracker.rodney_iphone
+      - device_tracker.rodney_iphone_icloud
       - device_tracker.work_phone
     tolerance: 10
     unit_of_measurement: 'mi'
