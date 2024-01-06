@@ -2008,12 +2008,12 @@
       lan_enabled: true
       friendly_name: Right Floor Lamp
       state: 'on'
-    light.humidor_led_strip:
+    light.bookcase_led_strip:
       http_enabled: true
       ble_enabled: true
       lan_enabled: true
       icon: mdi:led-strip-variant
-      friendly_name: Humidor LED Strip
+      friendly_name: Bookcase LED Strip
       state: 'on'
     light.office_lights:
       supported_color_modes:
@@ -2081,6 +2081,15 @@
       state: 'off'
     light.right_floor_lamp:
       friendly_name: Right Floor Lamp
+      http_enabled: true
+      ble_enabled: true
+      lan_enabled: true
+      timeout_count: 0
+      supported_features: 0
+      state: 'off'
+    light.bookcase_led_strip:
+      friendly_name: Bookcase LED Strip
+      icon: mdi:led-strip-variant
       http_enabled: true
       ble_enabled: true
       lan_enabled: true

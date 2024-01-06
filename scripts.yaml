@@ -28,7 +28,7 @@ reset_led_strip_color:
     data: {}
   mode: single
   icon: mdi:led-strip-variant
-'1688752966750':
+matrixportal_test:
   alias: MatrixPortal - Test
   sequence:
   - service: mqtt.publish
@@ -297,21 +297,9 @@ text_alert_image:
       name: content-type
       description: Enter the content type of the attachment
       required: true
-notify_alert:
+notify_alert_all:
   alias: Notify - Alert
-  sequence:
-  - condition: state
-    entity_id: input_boolean.mode_vacation
-    state: 'off'
-  - condition: state
-    entity_id: input_boolean.notify_audible
-    state: 'on'
-  - service: script.notify_alert_gina
-    data:
-      message: '{{message}}'
-  - service: script.notify_alert_rodney
-    data:
-      message: '{{message}}'
+  icon: mdi:volume-high
   fields:
     message:
       selector:
@@ -319,6 +307,34 @@ notify_alert:
       name: message
       description: Enter the text of the message
       required: true
+  sequence:
+  - condition: state
+    entity_id: input_boolean.mode_vacation
+    state: 'off'
+  - condition: state
+    entity_id: input_boolean.notify_audible
+    state: 'on'
+  - service: input_number.set_value
+    target:
+      entity_id: input_number.tts_announcement
+    data:
+      value: 0.85
+    alias: Volume 85%
+  - alias: Notify Gina
+    service: notify.{{state_attr('sensor.gina_info','notify')}}
+    data:
+      message: '{{message}}'
+  - alias: Notify Rodney
+    service: notify.{{state_attr('sensor.rodney_info','notify')}}
+    data:
+      message: '{{message}}'
+  - alias: Volume 35%
+    service: input_number.set_value
+    data:
+      value: 0.35
+    target:
+      entity_id: input_number.tts_volume
+  mode: single
 jarvis_alert:
   alias: Jarvis Alert
   sequence:
@@ -366,27 +382,33 @@ speech_engine:
     entity_id: input_boolean.notify_audible
     state: 'on'
   - condition: state
-    entity_id: group.family
-    state: home
+    entity_id: binary_sensor.home_occupied
+    state: 'on'
   - condition: state
     entity_id: input_boolean.mode_vacation
     state: 'off'
   - service: "{% if voice == 'nabu' %}\n  script.nabu_voice      \n{% elif who in
-      ['kitchen_echo_flex','media_player.kitchen_echo_flex','kitchen'] %}\n  {% if
-      is_state('media_player.kitchen_echo_flex','playing') %}\n    {% set who = 'kitchen'
-      %}\n    script.jarvis_voice\n  {% else %}\n    {% set who = 'kitchen_echo_flex'
-      %}\n    script.alexa_voice\n  {% endif %}\n{% elif who in ['lr_echo_show5',
-      'media_player.lr_echo_show5','living_room']  %}\n  {% if is_state('media_player.lr_echo_show5','playing')
-      %}\n    {% set who = 'living_room' %}\n    script.jarvis_voice\n  {% else %}\n
-      \   {% set who = 'lr_echo_show5' %}\n    script.alexa_voice\n  {% endif %}\n{%
-      elif who in ['guest1','media_player.guest1_echo_dot']  %}\n  {% if is_state('media_player.guest1_echo_dot','playing')
-      %}\n    {% set who = 'guest1' %}\n    script.jarvis_voice\n  {% else %}\n    {%
-      set who = 'media_player.guest1_echo_dot' %}\n    script.alexa_voice\n  {% endif
-      %}\n{% elif who in ['main_bedroom']  %}\n  script.jarvis_voice\n{% else %}\n
-      \ {% set who = 'lr_echo_show5' %}\n  script.alexa_voice\n{% endif %}\n"
+      ['office_echo_show','media_player.office_echo_show','office'] %}\n  {% if is_state('media_player.office_echo_show','playing')
+      %}\n    {% set who = 'office' %}\n      script.jarvis_voice\n  {% else %}\n
+      \   {% set who = 'office_echo_show' %}\n      script.alexa_voice\n  {% endif
+      %}\n{% elif who in ['kitchen_echo_flex','media_player.kitchen_echo_flex','kitchen']
+      %}\n  {% if is_state('media_player.kitchen_echo_flex','playing') %}\n    {%
+      set who = 'kitchen' %}\n     script.jarvis_voice\n  {% else %}\n    {% set who
+      = 'kitchen_echo_flex' %}\n     script.alexa_voice\n  {% endif %}\n{% elif who
+      in ['lr_echo_show5', 'media_player.lr_echo_show5','living_room'] %}\n  {% if
+      is_state('media_player.lr_echo_show5','playing') %}\n    {% set who = 'living_room'
+      %}\n     script.jarvis_voice\n  {% else %}\n    {% set who = 'lr_echo_show5'
+      %}\n      script.alexa_voice\n  {% endif %}\n{% elif who in ['guest1','media_player.guest1_echo_dot']
+      \ %}\n  {% if is_state('media_player.guest1_echo_dot','playing') %}\n    {%
+      set who = 'guest1' %}\n    script.jarvis_voice\n  {% else %}\n    {% set who
+      = 'media_player.guest1_echo_dot' %}\n      script.alexa_voice\n  {% endif %}\n{%
+      elif who in ['main_bedroom']  %}\n  script.jarvis_voice\n{% else %}\n  {% set
+      who = 'office_echo_show' %}\n    script.alexa_voice\n{% endif %}\n"
     data:
       who: '{{who}}'
       message: '{{message}}'
+  icon: mdi:account-voice
+  mode: single
 alexa_voice:
   alias: Voice - Alexa
   sequence:
@@ -486,7 +508,7 @@ dim_living_room_volume:
       value: '{{ states.media_player.sound_system.attributes.volume_level }}'
   - service: media_player.volume_set
     data_template:
-      entity_id: media_player.sound_system
+      entity_id: input_number.old_volume
       volume_level: 0.2
 raise_living_room_volume:
   alias: Volume - Up in Living Room
@@ -500,13 +522,26 @@ raise_living_room_volume:
       volume_level: '{{ states.input_number.old_volume.state }}'
 notify_alert_rodney:
   alias: Notify - Alert Rodney
+  icon: mdi:volume-high
   sequence:
   - condition: state
     entity_id: input_boolean.mode_vacation
     state: 'off'
+  - service: input_number.set_value
+    target:
+      entity_id: input_number.tts_announcement
+    data:
+      value: 0.85
+    alias: Volume 85%
   - service: notify.{{state_attr('sensor.rodney_info','notify')}}
     data:
       message: '{{message}}'
+  - alias: Volume 35%
+    service: input_number.set_value
+    data:
+      value: 0.35
+    target:
+      entity_id: input_number.tts_volume
   fields:
     message:
       selector:
@@ -515,16 +550,28 @@ notify_alert_rodney:
       description: Enter the text of the message
       required: true
   mode: single
-  icon: mdi:volume-high
 notify_alert_gina:
   alias: Notify - Alert Gina
+  icon: mdi:volume-high
   sequence:
   - condition: state
     entity_id: input_boolean.mode_vacation
     state: 'off'
+  - service: input_number.set_value
+    target:
+      entity_id: input_number.tts_announcement
+    data:
+      value: 0.85
+    alias: Volume 85%
   - service: notify.{{state_attr('sensor.gina_info','notify')}}
     data:
       message: '{{message}}'
+  - alias: Volume 35%
+    service: input_number.set_value
+    data:
+      value: 0.35
+    target:
+      entity_id: input_number.tts_volume
   fields:
     message:
       selector:
@@ -532,4 +579,29 @@ notify_alert_gina:
       name: message
       description: Enter the text of the message
       required: true
+  mode: single
+speech_engine_demo:
+  alias: Speech Engine Demo
+  sequence:
+  - condition: state
+    entity_id: input_boolean.notify_audible
+    state: 'on'
+  - condition: state
+    entity_id: input_boolean.mode_vacation
+    state: 'off'
+  - service: notify.alexa_media
+    data:
+      message: <voice name="{{ voice }}"> <amazon:auto-breaths> <prosody rate="fast">
+        {{ message }} </prosody> </amazon:auto-breaths> </voice>
+      target: "{% if who in ['livingroom','living_room','media_player.lr_echo_show5']
+        %}\n   media_player.lr_echo_show5\n {% elif who in ['main_bedroom','media_player.bedroom_echo_dot']
+        %}\n   media_player.bedroom_echo_dot\n {% elif who in ['guest1','media_player.guest1_echo_dot']
+        %}\n   media_player.guest1_echo_dot\n {% elif who in ['guest2','media_player.guest2_echo_dot']
+        %}\n   media_player.guest2_echo_dot\n {% elif who in ['kitchen','media_player.kitchen_echo_flex']
+        %}\n   media_player.kitchen_echo_flex\n {% elif who in ['office','media_player.office_echo_show']
+        %}\n   media_player.office_echo_show\n {% elif who in ['all'] %}\n   group.all_echos\n
+        {% else %}\n   media_player.office_echo_show\n {% endif %}\n"
+      data:
+        type: tts
+  icon: mdi:account-voice
   mode: single
