@@ -10,31 +10,6 @@
 ################################
 automation:
 
-  - id: 81bee5ee-6820-4626-aebf-3deb8de69e4d
-    alias: Turn On Audible Notifications
-    initial_state: true
-    trigger:
-      platform: template
-      value_template: "{{ states('sensor.time') == (state_attr('input_datetime.notify_audible_on', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
-    action:
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.notify_audible
-
-  # Turn off audible notifications if they have't been turned off yet.
-  - id: e0e9c774-6abe-42aa-bdab-32108bebb0e9
-    alias: Turn Off Audible Notifications
-    initial_state: true
-    trigger:
-    - platform: template
-      value_template: "{{ states('sensor.time') == (state_attr('input_datetime.notify_audible_off', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
-    condition:
-    - condition: state
-      entity_id: input_boolean.notify_audible
-      state: 'on'
-    action:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.notify_audible
-
   - id: 1d8f396a-f6ec-460d-97e3-d11900418f95
     alias: Good Morning Report
     initial_state: true
