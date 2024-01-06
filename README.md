@@ -4,7 +4,7 @@ This is my Production Home Assistant installation.
 
 [![GitHub stars](https://img.shields.io/github/stars/Rodney-Smith/HomeAssistant-Config?style=plastic)](https://github.com/Rodney-Smith/HomeAssistant-Config/stargazers)
 [![GitHub last commit](https://img.shields.io/github/last-commit/rodney-smith/HomeAssistant-Config/main?style=plastic)](https://github.com/rodney-smith/HomeAssistant-Config/commits/main)
-[![HA Version](https://img.shields.io/badge/Running_Home_Assistant-2023.12.3-darkblue)](https://github.com/home-assistant/home-assistant/releases/latest)
+[![HA Version](https://img.shields.io/badge/Running_Home_Assistant-2024.1.2-darkblue)](https://github.com/home-assistant/home-assistant/releases/latest)
 [![HA Version](https://img.shields.io/badge/Original_Home_Assistant-2020.12.1-darkblue)](https://github.com/home-assistant/core/releases/2020.12.1)
 [![HA Community](https://img.shields.io/badge/HA_Community-Forum-orange)](https://community.home-assistant.io/u/rodney.delauer/summary)
 
@@ -21,14 +21,14 @@ This is my Production Home Assistant installation.
 - [ThirdReality Sensor](https://3reality.myshopify.com/products/thirdreality-zigbee-contact-sensor-door-and-window-sensor-for-home-security-and-smart-home-automation-zigbee-hub-required-works-with-smartthings-hubitat-or-echo-devices-with-build-in-zigbee-hub), [ThirdReality Leak Sensor](https://3reality.myshopify.com/products/thirdreality-zigbee-water-leak-sensor-upgraded-with-dripping-detection-120-db-alarm-app-email-notifications-enabled-when-work-with-compatible-zigbee-hub-like-smartthings-aeotec-or-third-reality-hub), [ThirdReality Switch](https://3reality.myshopify.com/products/all-new-made-for-amazon-zigbee-smart-switch-gen3-compatible-with-echo-4th-gen-echo-plus-1st-2nd-gen-echo-show-10-2nd-3rd-gen-echo-studio-eero-6-and-eero-6-pro)
 
 ### Add-ons
-[![Advanced SSH & Web Terminal](https://img.shields.io/badge/SSH_%26_Terminal-17.0.0-5294E2.svg)](https://github.com/hassio-addons/addon-ssh)
-[![ESPHome](https://img.shields.io/badge/ESPHome-2023.12.3-5294E2.svg)](https://esphome.io/)
+[![Advanced SSH & Web Terminal](https://img.shields.io/badge/SSH_%26_Terminal-17.0.1-5294E2.svg)](https://github.com/hassio-addons/addon-ssh)
+[![ESPHome](https://img.shields.io/badge/ESPHome-2023.12.5-5294E2.svg)](https://esphome.io/)
 [![Home Assistant Google Drive Backup](https://img.shields.io/badge/Google_Drive_Backup-0.112.1-5294E2.svg)](https://github.com/sabeechen/hassio-google-drive-backup)
-[![Matter Server](https://img.shields.io/badge/Matter_Server-5.0.1-5294E2.svg)](https://github.com/home-assistant/addons/tree/master/matter_server)
+[![Matter Server](https://img.shields.io/badge/Matter_Server-5.0.2-5294E2.svg)](https://github.com/home-assistant/addons/tree/master/matter_server)
 [![openWakeWord](https://img.shields.io/badge/openWakeWord-1.8.2-5294E2.svg)](https://github.com/home-assistant/addons/blob/master/oopenwakeword)
 [![Piper](https://img.shields.io/badge/Piper-1.4.0-5294E2.svg)](https://github.com/home-assistant/addons/blob/master/piper)
 [![Samba Share](https://img.shields.io/badge/Samba-12.2.0-5294E2.svg)](https://github.com/home-assistant/addons/tree/master/samba)
-[![Silicon Labs Multiprotocol](https://img.shields.io/badge/Silabs_Multiprotocol-2.3.2-5294E2.svg)](https://github.com/home-assistant/addons/tree/master/silabs-multiprotocol)
+[![Silicon Labs Multiprotocol](https://img.shields.io/badge/Silabs_Multiprotocol-2.4.2-5294E2.svg)](https://github.com/home-assistant/addons/tree/master/silabs-multiprotocol)
 [![Studio Code Server](https://img.shields.io/badge/Studio_Code_Server-unknown-5294E2.svg)](https://github.com/hassio-addons/addon-vscode)
 [![Syncthing](https://img.shields.io/badge/Syncthing-1.17.0-5294E2.svg)](https://github.com/Poeschl/Hassio-Addons/tree/main/syncthing)
 [![TasmoBackup](https://img.shields.io/badge/TasmoBackup-1.0.0-5294E2.svg)](https://github.com/danmed/TasmoBackupV1/)
@@ -38,35 +38,35 @@ This is my Production Home Assistant installation.
 Description | value
 -- | --
 Number of domains | 39
-Number of entities | 1694
-Count of alarm | 3
+Number of entities | 1744
+Count of alarm | 2
 Count of alert | 0
-Count of automation | 74
-Count of binary_sensor | 138
-Count of calendar | 16
-Count of camera | 8
+Count of automation | 69
+Count of binary_sensor | 122
+Count of calendar | 20
+Count of camera | 2
 Count of climate | 1
 Count of cover | 4
-Count of device_tracker | 9
+Count of device_tracker | 10
 Count of fan | 8
 Count of input_boolean | 43
 Count of input_datetime | 27
 Count of input_number | 13
 Count of input_select | 2
 Count of input_text | 1
-Count of lights | 46
+Count of lights | 50
 Count of media_player | 23
-Count of number | 73
+Count of number | 77
 Count of person | 8
-Count of scene | 26
+Count of scene | 25
 Count of script | 46
-Count of sensor | 847
+Count of sensor | 876
 Count of sun | 1
-Count of switch | 80
+Count of switch | 73
 Count of timer | 2
-Count of update | 67
+Count of update | 68
 Count of vacuum | 3
-Count of weather | 4
+Count of weather | 5
 Count of zone | 26
 
 ## My installed extensions:
@@ -80,6 +80,7 @@ Count of zone | 26
 - [Generate Readme](https://github.com/custom-components/readme)
 - [Govee Lan Control](https://github.com/wez/govee-lan-hass)
 - [HACS](https://github.com/hacs/integration)
+- [Local Tuya](https://github.com/rospogrigio/localtuya)
 - [Node Red Companion](https://github.com/zachowj/hass-node-red)
 - [Nws Alerts](https://github.com/finity69x2/nws_alerts)
 - [Orbit Bhyve](https://github.com/sebr/bhyve-home-assistant)
